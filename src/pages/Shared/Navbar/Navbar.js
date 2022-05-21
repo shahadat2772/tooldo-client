@@ -1,19 +1,20 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const navLinks = (
     <>
       <li>
-        <a>Submenu 1</a>
+        <Link to={"/home"}>Home</Link>
       </li>
       <li>
-        <a>Submenu 2</a>
+        <Link to={"/home"}>Home</Link>
       </li>
     </>
   );
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar py-5 bg-base-100">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex="0" className="btn btn-ghost lg:hidden">
