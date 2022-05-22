@@ -24,7 +24,8 @@ const Summary = () => {
       <div className="grid grid-cols-1 md:grid-cols-4 items-center justify-items-center gap-5 py-10 px-12">
         <div className="repuInfo flex items-center w-[280px] gap-3">
           <h2 className="text-white text-4xl text-center">
-            Heading to a better tomorrow.
+            Heading to a better <span className="text-secondary">tomorrow</span>
+            .
           </h2>
         </div>
         <div className="repuInfo flex items-center w-[250px] gap-3">

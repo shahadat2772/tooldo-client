@@ -11,7 +11,8 @@ import {
 const Footer = () => {
   return (
     <div>
-      <footer class="footer p-10 bg-neutral text-neutral-content">
+      <hr />
+      <footer class="footer p-10  text-base-content">
         <div>
           <span class="footer-title">Services</span>
           <a class="link link-hover">Branding</a>
@@ -39,14 +40,14 @@ const Footer = () => {
           <a class="link link-hover">Privacy policy</a>
         </div>
       </footer>
-      <footer class="footer px-10 py-4 border-t  bg-neutral text-neutral-content">
+      <footer class="footer px-10 py-4 border-t  bg-neutral text-white">
         <div class="items-center grid-flow-col">
           <FontAwesomeIcon
             className="text-3xl"
             icon={faScrewdriverWrench}
           ></FontAwesomeIcon>
           <p>
-            Assignment-12
+            TOOL<span className="text-secondary">DO</span>
             <br />©<span className="text-[12px]">ALL RIGHTS RESERVED</span>
           </p>
         </div>

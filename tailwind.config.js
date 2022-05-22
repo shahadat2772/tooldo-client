@@ -23,6 +23,11 @@ module.exports = {
   plugins: [require("daisyui")],
 };
 
+// #F0A500
+// #334756
+// #082032
+// #000000
+
 // module.exports = {
 //   content: ["./src/**/*.{html,js}"],
 //   theme: {
