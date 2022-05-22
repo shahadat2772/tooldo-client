@@ -10,8 +10,11 @@ import {
   faGlobe,
   faFacebookF,
 } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 const OurTeam = () => {
+  const navigate = useNavigate();
+
   const { data: members, isLoading } = useQuery("memebers", () =>
     fetch("teammembers.json").then((res) => res.json())
   );
@@ -39,20 +42,21 @@ const OurTeam = () => {
           >
             OUR TEAM
           </h2>
-          <div className="teamMembers grid grid-cols-1 md:grid-cols-4 gap-6 max-w-6xl mx-auto justify-items-center py-8 ">
+          <div className="teamMembers grid grid-cols-1 md:grid-cols-4 gap-6 max-w-6xl mx-auto justify-items-center py-8">
             {/* Each teammember */}
 
             {members?.map((member, index) => (
-              <div key={index} class="card-compact w-60">
+              <div key={index} class="card-compact w-60 hover:bg-naturel-300">
                 <img src={member.img} alt="member" />
                 <div class="card-body text-white">
                   <h2
+                    onClick={() => navigate(`/member/${member.id}`)}
                     style={{ fontFamily: "Oswald" }}
                     class="card-title text-[24px] cursor-pointer hover:text-secondary"
                   >
                     {member.name}
                   </h2>
-                  <p className="cursor-pointer">{member.role}</p>
+                  <p className="cursor-pointer text-secondary">{member.role}</p>
                 </div>
               </div>
             ))}
