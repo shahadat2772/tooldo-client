@@ -9,7 +9,7 @@ const EachItem = ({ item }) => {
         <img src={image} alt={name} />
       </figure>
       <div class="card-body">
-        <h2 class="text-accent card-title">{name}</h2>
+        <h2 class="text-accent card-title mb-0">{name}</h2>
         <p className="text-accent">{description.slice(0, 100)}</p>
         <div className="infoContainer w-60 mx-auto my-1">
           <div className="infos flex w-full justify-between my-1">
@@ -26,7 +26,7 @@ const EachItem = ({ item }) => {
           </div>
         </div>
         <div class="card-actions justify-end">
-          <button class="btn btn-primary">ORDER Now</button>
+          <button class="btn btn-primary">place order</button>
         </div>
       </div>
     </div>
