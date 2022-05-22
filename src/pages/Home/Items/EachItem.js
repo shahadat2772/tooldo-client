@@ -9,7 +9,7 @@ const EachItem = ({ item }) => {
         <img src={image} alt={name} />
       </figure>
       <div class="card-body">
-        <h2 class="text-accent card-title mb-0">{name}</h2>
+        <h2 class="text-accent card-title font-normal">{name}</h2>
         <p className="text-accent">{description.slice(0, 100)}</p>
         <div className="infoContainer w-60 mx-auto my-1">
           <div className="infos flex w-full justify-between my-1">
