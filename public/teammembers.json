@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Jason Rice",
+    "img": "https://i.ibb.co/q9L7SGR/founder.png",
+    "role": "Founder",
+    "birth": "1973-11-18",
+    "email": "support@mikado-themes.com",
+    "phone": "+1245 9985 8574",
+    "address": "Brooklyn, New York",
+    "education": "New York University"
+  },
+  {
+    "name": "Russell Ford",
+    "role": "CEO",
+    "img": "https://i.ibb.co/34MW8V2/ceo.jpg",
+    "birth": "1973-11-18",
+    "email": "support@mikado-themes.com",
+    "phone": "+1245 9985 8574",
+    "address": "Brooklyn, New York",
+    "education": "New York University"
+  },
+  {
+    "name": "Samuel Day",
+    "role": "Chief Engineer",
+    "img": "https://i.ibb.co/TPzjkV7/engeener.png",
+    "birth": "1973-11-18",
+    "email": "support@mikado-themes.com",
+    "phone": "+1245 9985 8574",
+    "address": "Brooklyn, New York",
+    "education": "New York University"
+  },
+  {
+    "name": "Edward Palmer",
+    "role": "Manager",
+    "img": "https://i.ibb.co/PgvfgQC/manager.png",
+    "birth": "1973-11-18",
+    "email": "support@mikado-themes.com",
+    "phone": "+1245 9985 8574",
+    "address": "Brooklyn, New York",
+    "education": "New York University"
+  }
+]

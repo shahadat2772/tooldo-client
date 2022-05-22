@@ -14,12 +14,13 @@ const Banner = () => {
         <div
           style={{
             position: "absolute",
-            // top: "25%",
-            // left: "15%",
           }}
-          className="bannerContent left-[10%] md:left-[15%] top-[25%]"
+          className="bannerContent left-[10%] md:left-[13%] top-[14%] md:top-[22%]"
         >
-          <h1 className="text-5xl text-white">
+          <h1
+            style={{ fontFamily: "Oswald", lineHeight: "75px" }}
+            className="text-[65px] text-white"
+          >
             LIFT YOUR YOUR <br /> BUSINESS{" "}
             <span className="text-secondary">WITH US</span>
           </h1>
