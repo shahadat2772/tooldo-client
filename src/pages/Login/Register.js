@@ -1,5 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { auth } from "../../firebase.init";
+import Loading from "../Shared/Loading/Loading";
 
 const Register = () => {
   // FORM hook
@@ -10,25 +13,32 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
-  // const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+  const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
 
   // Handling form submit
   const onSubmit = (data) => {
     console.log(data);
-
     const name = data.name;
     const email = data.email;
     const password = data.password;
   };
 
-  const googleLogin = () => {
-    console.log("login");
-  };
+  if (gloading) {
+    return <Loading></Loading>;
+  }
+
+  let errorElement;
+  if (gerror) {
+    errorElement = (
+      <p className="text-error text-[12px] mt-1 m-0">{gerror?.message}</p>
+    );
+  }
 
   return (
     <div className="hero min-h-[80vh]">
       <div className="card flex-shrink-0 w-full max-w-sm shadow-xl bg-base-100">
-        <div class="card-body">
+        <div class="card-body pt-4">
+          <h2 className="text-center text-2xl pb-3">Register</h2>
           <form onSubmit={handleSubmit(onSubmit)}>
             {/*  Name input */}
             <div class="form-control">
@@ -134,13 +144,17 @@ const Register = () => {
                 </a>
               </label> */}
             </div>
+            {errorElement && errorElement}
             <div class="form-control mt-4">
               <button class="btn btn-primary">Register</button>
             </div>
           </form>
           <div className="divider my-0 mt-1">or</div>
           <div class="form-control mt-2">
-            <button onClick={googleLogin} class="btn btn-outline btn-primary">
+            <button
+              onClick={() => signInWithGoogle()}
+              class="btn btn-outline btn-primary"
+            >
               <img
                 className="w-[25px] h-[25px] mr-1"
                 src="https://i.ibb.co/0ZbPGnh/google.png"
