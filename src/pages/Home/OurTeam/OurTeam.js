@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import Loading from "../../Shared/Loading/Loading";
 
@@ -15,8 +15,8 @@ import { useNavigate } from "react-router-dom";
 const OurTeam = () => {
   const navigate = useNavigate();
 
-  const { data: members, isLoading } = useQuery("memebers", () =>
-    fetch("teammembers.json").then((res) => res.json())
+  const { data: members, isLoading } = useQuery("members", () =>
+    fetch("http://localhost:5000/teamMember").then((res) => res.json())
   );
 
   if (isLoading) {
@@ -33,7 +33,7 @@ const OurTeam = () => {
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
-        className="bannerImage  rounded relative"
+        className="bannerImage  rounded relative  "
       >
         <div className="bannerContent">
           <h2
@@ -50,7 +50,7 @@ const OurTeam = () => {
                 <img src={member.img} alt="member" />
                 <div class="card-body text-white">
                   <h2
-                    onClick={() => navigate(`/member/${member.id}`)}
+                    onClick={() => navigate(`/member/${member._id}`)}
                     style={{ fontFamily: "Oswald" }}
                     class="card-title text-[24px] cursor-pointer hover:text-secondary"
                   >

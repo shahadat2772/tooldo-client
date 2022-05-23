@@ -8,7 +8,7 @@
     "phone": "+1245 9985 8574",
     "address": "Brooklyn, New York",
     "education": "New York University",
-    "id": 1
+    "id": "1"
   },
   {
     "name": "Russell Ford",
@@ -19,7 +19,7 @@
     "phone": "+1245 9985 8574",
     "address": "Brooklyn, New York",
     "education": "New York University",
-    "id": 2
+    "id": "2"
   },
   {
     "name": "Samuel Day",
@@ -30,7 +30,7 @@
     "phone": "+1245 9985 8574",
     "address": "Brooklyn, New York",
     "education": "New York University",
-    "id": 3
+    "id": "3"
   },
   {
     "name": "Edward Palmer",
@@ -41,6 +41,6 @@
     "phone": "+1245 9985 8574",
     "address": "Brooklyn, New York",
     "education": "New York University",
-    "id": 4
+    "id": "4"
   }
 ]
