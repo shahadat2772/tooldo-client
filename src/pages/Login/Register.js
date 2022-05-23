@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase.init";
 import Loading from "../Shared/Loading/Loading";
+import useToken from "../../hooks/useToken";
 
 const Register = () => {
   // FORM hook
@@ -15,6 +16,8 @@ const Register = () => {
 
   const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
 
+  // TOKEN HOOK
+  const [token] = useToken(guser);
   // Handling form submit
   const onSubmit = (data) => {
     console.log(data);
@@ -32,6 +35,9 @@ const Register = () => {
     errorElement = (
       <p className="text-error text-[12px] mt-1 m-0">{gerror?.message}</p>
     );
+  }
+
+  if (guser) {
   }
 
   return (
