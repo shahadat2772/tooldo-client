@@ -2,12 +2,24 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import Loading from "../../Shared/Loading/Loading";
+import { signOut } from "firebase/auth";
 
 const MemberDetail = () => {
   const { id } = useParams();
 
   const { data: member, isLoading } = useQuery(["memberById", id], () =>
-    fetch(`http://localhost:5000/teamMember/${id}`).then((res) => res.json())
+    fetch(`http://localhost:5000/teamMember/${id}`, {
+      headers: {
+        authorization: `Bearer ${window.localStorage.getItem("accessToken")}`,
+      },
+    }).then((res) => {
+      if (res.status === 401 || res.status === 403) {
+        window.localStorage.removeItem("accessToken");
+        signOut();
+        return;
+      }
+      return res.json();
+    })
   );
 
   if (isLoading) {

@@ -1,11 +1,19 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import {
+  useCreateUserWithEmailAndPassword,
+  useSignInWithGoogle,
+  useUpdateProfile,
+} from "react-firebase-hooks/auth";
 import { auth } from "../../firebase.init";
 import Loading from "../Shared/Loading/Loading";
 import useToken from "../../hooks/useToken";
+import { Link, useNavigate } from "react-router-dom";
+import { async } from "@firebase/util";
 
 const Register = () => {
+  const navigate = useNavigate();
+
   // FORM hook
   const {
     register,
@@ -14,30 +22,39 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
+  const [createUserWithEmailAndPassword, user, eploading, eperror] =
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+  const [updateProfile, updating, uerror] = useUpdateProfile(auth);
+
   const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
 
   // TOKEN HOOK
-  const [token] = useToken(guser);
+  const [token] = useToken(guser || user);
   // Handling form submit
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log(data);
     const name = data.name;
     const email = data.email;
     const password = data.password;
+    await createUserWithEmailAndPassword(email, password);
+    await updateProfile({ displayName: name });
   };
 
-  if (gloading) {
+  if (gloading || eploading || updating) {
     return <Loading></Loading>;
   }
 
   let errorElement;
-  if (gerror) {
+  if (gerror || eperror) {
     errorElement = (
-      <p className="text-error text-[12px] mt-1 m-0">{gerror?.message}</p>
+      <p className="text-error text-[12px] mt-1 m-0">
+        {gerror?.message || eperror?.message}
+      </p>
     );
   }
 
-  if (guser) {
+  if (token) {
+    navigate("/home");
   }
 
   return (
@@ -154,8 +171,13 @@ const Register = () => {
             <div class="form-control mt-4">
               <button class="btn btn-primary">Register</button>
             </div>
+            <label class="label pb-0">
+              <Link className="text-[12px] text-secondary " to={"/login"}>
+                Have account?
+              </Link>
+            </label>
           </form>
-          <div className="divider my-0 mt-1">or</div>
+          <div className="divider my-0 ">or</div>
           <div class="form-control mt-2">
             <button
               onClick={() => signInWithGoogle()}

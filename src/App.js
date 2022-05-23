@@ -5,6 +5,8 @@ import Navbar from "./pages/Shared/Navbar/Navbar";
 import { Route, Routes } from "react-router-dom";
 import MemberDetail from "./pages/Home/OurTeam/MemberDetail";
 import Register from "./pages/Login/Register";
+import Login from "./pages/Login/Login";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
@@ -17,8 +19,10 @@ function App() {
           path="/member/:id"
           element={<MemberDetail></MemberDetail>}
         ></Route>
+        <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
       </Routes>
+      <Toaster></Toaster>
     </div>
   );
 }

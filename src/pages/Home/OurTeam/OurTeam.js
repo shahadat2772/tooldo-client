@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import Loading from "../../Shared/Loading/Loading";
+import { signOut } from "firebase/auth";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,6 +10,7 @@ import {
   faMoneyBill1Wave,
   faGlobe,
   faFacebookF,
+  faSignOutAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 
@@ -16,7 +18,18 @@ const OurTeam = () => {
   const navigate = useNavigate();
 
   const { data: members, isLoading } = useQuery("members", () =>
-    fetch("http://localhost:5000/teamMember").then((res) => res.json())
+    fetch("http://localhost:5000/teamMember", {
+      headers: {
+        authorization: `Bearer ${window.localStorage.getItem("accessToken")}`,
+      },
+    }).then((res) => {
+      if (res.status === 401 || res.status === 403) {
+        window.localStorage.removeItem("accessToken");
+        signOut();
+        return;
+      }
+      return res.json();
+    })
   );
 
   if (isLoading) {
