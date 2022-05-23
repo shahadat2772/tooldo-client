@@ -17,10 +17,9 @@ const useToken = (user) => {
       })
         .then((res) => res.json())
         .then((result) => {
-          if (result.accessToken) {
-            setToken(result.accessToken);
-            window.localStorage.setItem("accessToken", result.accessToken);
-          }
+          const token = result?.accessToken;
+          window.localStorage.setItem("accessToken", token);
+          setToken(token);
         });
     }
   }, [user]);

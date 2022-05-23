@@ -1,17 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import Loading from "../../Shared/Loading/Loading";
-import { signOut } from "firebase/auth";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCoffee,
-  faUserGroup,
-  faMoneyBill1Wave,
-  faGlobe,
-  faFacebookF,
-  faSignOutAlt,
-} from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 
 const OurTeam = () => {
@@ -22,21 +12,12 @@ const OurTeam = () => {
       headers: {
         authorization: `Bearer ${window.localStorage.getItem("accessToken")}`,
       },
-    }).then((res) => {
-      if (res.status === 401 || res.status === 403) {
-        window.localStorage.removeItem("accessToken");
-        signOut();
-        return;
-      }
-      return res.json();
-    })
+    }).then((res) => res.json())
   );
 
   if (isLoading) {
     return <Loading></Loading>;
   }
-
-  console.log(members);
 
   return (
     <section className="px-4 pt-10">

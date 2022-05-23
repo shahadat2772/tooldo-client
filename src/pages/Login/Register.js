@@ -22,14 +22,14 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
-  const [createUserWithEmailAndPassword, user, eploading, eperror] =
+  const [createUserWithEmailAndPassword, user, eploading, epError] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [updateProfile, updating, uerror] = useUpdateProfile(auth);
 
   const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
 
   // TOKEN HOOK
-  const [token] = useToken(guser || user);
+  const [token, tokenLoading] = useToken(guser || user);
   // Handling form submit
   const onSubmit = async (data) => {
     console.log(data);
@@ -38,17 +38,18 @@ const Register = () => {
     const password = data.password;
     await createUserWithEmailAndPassword(email, password);
     await updateProfile({ displayName: name });
+    console.log(user || guser);
   };
 
-  if (gloading || eploading || updating) {
+  if (gloading || eploading || tokenLoading || updating) {
     return <Loading></Loading>;
   }
 
   let errorElement;
-  if (gerror || eperror) {
+  if (gerror || epError) {
     errorElement = (
       <p className="text-error text-[12px] mt-1 m-0">
-        {gerror?.message || eperror?.message}
+        {gerror?.message || epError?.message}
       </p>
     );
   }

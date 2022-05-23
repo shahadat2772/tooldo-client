@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 
 const useAdmin = (user) => {
-  const [admin, setAdmin] = useState(null);
+  const [admin, setAdmin] = useState(undefined);
+  const [adminLoading, setAdminLoading] = useState(true);
 
   useEffect(() => {
     if (user) {
-      const email = user?.email;
-
+      const email = { email: user?.email };
       fetch("http://localhost:5000/isAdmin", {
         method: "POST",
         headers: {
@@ -16,8 +16,14 @@ const useAdmin = (user) => {
         body: JSON.stringify({ email }),
       })
         .then((res) => res.json())
-        .then((data) => console.log(data));
+        .then((data) => {
+          const role = data?.role;
+          setAdmin(role);
+          setAdminLoading(false);
+        });
     }
+
+    return [admin, adminLoading];
   }, [user]);
 };
 export default useAdmin;

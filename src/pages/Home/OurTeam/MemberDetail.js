@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import Loading from "../../Shared/Loading/Loading";
 import { signOut } from "firebase/auth";
+import { auth } from "../../../firebase.init";
 
 const MemberDetail = () => {
   const { id } = useParams();
@@ -15,10 +16,11 @@ const MemberDetail = () => {
     }).then((res) => {
       if (res.status === 401 || res.status === 403) {
         window.localStorage.removeItem("accessToken");
-        signOut();
+        signOut(auth);
         return;
+      } else {
+        return res.json();
       }
-      return res.json();
     })
   );
 

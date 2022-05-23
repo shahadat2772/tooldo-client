@@ -7,6 +7,7 @@ import MemberDetail from "./pages/Home/OurTeam/MemberDetail";
 import Register from "./pages/Login/Register";
 import Login from "./pages/Login/Login";
 import { Toaster } from "react-hot-toast";
+import RequireAuth from "./pages/Login/RequireAuth";
 
 function App() {
   return (
@@ -17,7 +18,11 @@ function App() {
         <Route path="/home" element={<Home></Home>}></Route>
         <Route
           path="/member/:id"
-          element={<MemberDetail></MemberDetail>}
+          element={
+            <RequireAuth>
+              <MemberDetail></MemberDetail>
+            </RequireAuth>
+          }
         ></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>

@@ -9,13 +9,18 @@ import {
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { auth } from "../../firebase.init";
 import useToken from "../../hooks/useToken";
 import Loading from "../Shared/Loading/Loading";
 
 const Login = () => {
+  const location = useLocation();
   const navigate = useNavigate();
+
+  const from = location?.state?.from?.pathname || "/home";
+
+  console.log(from);
 
   // FORM hook
   const {
@@ -38,9 +43,9 @@ const Login = () => {
   // Handling form submit
   const onSubmit = async (data) => {
     console.log(data);
-    const name = data.name;
     const email = data.email;
     const password = data.password;
+    console.log(email, password);
     await signInWithEmailAndPassword(email, password);
   };
 
@@ -49,16 +54,16 @@ const Login = () => {
   }
 
   let errorElement;
-  if (gerror || esloading) {
+  if (gerror || eserror) {
     errorElement = (
       <p className="text-error text-[12px] mt-1 m-0">
-        {gerror?.message || esloading?.message}
+        {gerror?.message || eserror?.message}
       </p>
     );
   }
 
   if (token) {
-    navigate("/home");
+    navigate(from, { replace: true });
   }
 
   const handleForgetPass = async () => {
