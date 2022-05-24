@@ -22,7 +22,8 @@ const EachReviews = ({ review }) => {
             <p className="font-normal text-sm">{review.country}</p>
           </div>
         </h2>
-        <p>{review.text}</p>
+        <p>{review.review}</p>
+        <p className="text-sm">Ratings: {review.ratings} of 5</p>
         <p className="ml-1 text-xs">{review.today}</p>
       </div>
     </div>
