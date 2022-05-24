@@ -9,6 +9,8 @@ import Login from "./pages/Login/Login";
 import { Toaster } from "react-hot-toast";
 import RequireAuth from "./pages/Login/RequireAuth";
 import Purchase from "./pages/Purchase/Purchase";
+import Dashboard from "./pages/Dashboard/Dashboard/Dashboard";
+import MyOrders from "./pages/Dashboard/MyOrders/MyOrders";
 
 function App() {
   return (
@@ -17,6 +19,28 @@ function App() {
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/home" element={<Home></Home>}></Route>
+        <Route
+          path="/dashboard"
+          element={
+            <RequireAuth>
+              <Dashboard></Dashboard>
+            </RequireAuth>
+          }
+        >
+          {/* Nested Routs */}
+          <Route
+            path="/dashboard/myOrders"
+            element={<MyOrders></MyOrders>}
+          ></Route>
+          <Route
+            path="/dashboard/addReview"
+            element={<MyOrders></MyOrders>}
+          ></Route>
+          <Route
+            path="/dashboard/myProfile"
+            element={<MyOrders></MyOrders>}
+          ></Route>
+        </Route>
         <Route
           path="/purchase/:id"
           element={

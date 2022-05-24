@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import Loading from "../Shared/Loading/Loading";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase.init";
+import toast from "react-hot-toast";
 
 const Purchase = () => {
   const { id } = useParams();
@@ -16,6 +17,7 @@ const Purchase = () => {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
   } = useForm();
 
@@ -27,17 +29,8 @@ const Purchase = () => {
     return <Loading></Loading>;
   }
 
-  const onSubmit = async (data) => {
-    console.log(data);
-    const name = data.name;
-    const email = data.email;
-    const address = data.address;
-    const phone = data.phone;
-    const quantity = data.quantity;
-  };
-
   const {
-    name,
+    name: itemName,
     image,
     description,
     minimumOrderQuant,
@@ -46,6 +39,43 @@ const Purchase = () => {
     _id,
   } = item;
 
+  const onSubmit = async (data) => {
+    console.log(data);
+    const name = data.name;
+    const email = data.email;
+    const address = data.address;
+    const phone = data.phone;
+    const quantity = data.quantity;
+
+    const order = {
+      itemName,
+      quantity,
+      name,
+      email,
+      address,
+      phone,
+    };
+
+    console.log();
+
+    fetch(`http://localhost:5000/order`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${window.localStorage.getItem("accessToken")}`,
+      },
+      body: JSON.stringify({ order }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          toast.success(`Your order is placed successfully.`);
+        } else {
+          toast.error("Doh! Something terrible happened.");
+        }
+      });
+  };
+
   return (
     <div className="hero min-h-[80vh]">
       <div class="grid grid-cols-1 md:grid-cols-3 items-center gap-8 bg-base-100 shadow-xl px-6 py-6">
@@ -53,7 +83,7 @@ const Purchase = () => {
           <img className="img " src={image} alt="Album" />
         </div>
         <div className="itemInfo w-80">
-          <h2 className="mb-4 text-2xl">{name}</h2>
+          <h2 className="mb-4 text-2xl">{itemName}</h2>
           <p>{description.slice(0, 150)}</p>
           <hr />
           <p className="py-[10px]">minimumOrderQuant: {minimumOrderQuant}pcs</p>
@@ -74,7 +104,6 @@ const Purchase = () => {
                   },
                 })}
                 defaultValue={user?.displayName}
-                // disabled={user.displayName}
                 type="text"
                 placeholder="Name"
                 class="input input-bordered"

@@ -147,7 +147,7 @@ const Register = () => {
                 placeholder="password"
                 class="input input-bordered"
               />
-              {/* Email field ERRORS */}
+              {/* Password field ERRORS */}
               {
                 <label className="label pt-[4px] pb-0">
                   {errors.password?.type === "required" && (

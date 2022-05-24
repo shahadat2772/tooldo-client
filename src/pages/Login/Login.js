@@ -18,10 +18,6 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const from = location?.state?.from?.pathname || "/home";
-
-  console.log(from);
-
   // FORM hook
   const {
     register,
@@ -37,6 +33,8 @@ const Login = () => {
 
   const [sendPasswordResetEmail, sending, fperror] =
     useSendPasswordResetEmail(auth);
+
+  const from = location?.state?.from?.pathname || "/home";
 
   // TOKEN HOOK
   const [token] = useToken(guser || user);
