@@ -13,7 +13,7 @@
     "description": "WIDE RANGE of tests for AC/DC Voltage, AC/DC Current, Resistance, Continuity, Capacitance, Frequency and Temperature; Tests Diodes. PROFESSIONAL LEVEL features include Auto-Ranging capability, and True RMS for measuring both AC Current and Voltage. Convenient features like Data Hold, Large LCD Backlit Screen, Kickstand, and Low Battery Indicator make taking and recording measurements easier than ever before.",
     "minimumOrderQuant": "50",
     "availableQuant": "220",
-    "price": 14
+    "price": 18
   },
   {
     "name": "AVO Meter-3",
@@ -21,7 +21,7 @@
     "description": "WIDE RANGE of tests for AC/DC Voltage, AC/DC Current, Resistance, Continuity, Capacitance, Frequency and Temperature; Tests Diodes. PROFESSIONAL LEVEL features include Auto-Ranging capability, and True RMS for measuring both AC Current and Voltage. Convenient features like Data Hold, Large LCD Backlit Screen, Kickstand, and Low Battery Indicator make taking and recording measurements easier than ever before.",
     "minimumOrderQuant": "50",
     "availableQuant": "220",
-    "price": 14
+    "price": 15
   },
   {
     "name": "AVO Meter-4",
@@ -37,7 +37,7 @@
     "description": "WIDE RANGE of tests for AC/DC Voltage, AC/DC Current, Resistance, Continuity, Capacitance, Frequency and Temperature; Tests Diodes. PROFESSIONAL LEVEL features include Auto-Ranging capability, and True RMS for measuring both AC Current and Voltage. Convenient features like Data Hold, Large LCD Backlit Screen, Kickstand, and Low Battery Indicator make taking and recording measurements easier than ever before.",
     "minimumOrderQuant": "50",
     "availableQuant": "220",
-    "price": 14
+    "price": 12
   },
   {
     "name": "AVO Meter-6",
@@ -45,6 +45,6 @@
     "description": "WIDE RANGE of tests for AC/DC Voltage, AC/DC Current, Resistance, Continuity, Capacitance, Frequency and Temperature; Tests Diodes. PROFESSIONAL LEVEL features include Auto-Ranging capability, and True RMS for measuring both AC Current and Voltage. Convenient features like Data Hold, Large LCD Backlit Screen, Kickstand, and Low Battery Indicator make taking and recording measurements easier than ever before.",
     "minimumOrderQuant": "50",
     "availableQuant": "220",
-    "price": 14
+    "price": 10
   }
 ]
