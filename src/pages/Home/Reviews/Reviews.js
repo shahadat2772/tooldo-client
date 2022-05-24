@@ -5,7 +5,7 @@ import Loading from "../../Shared/Loading/Loading";
 
 const Reviews = () => {
   const { data: reviews, isLoading } = useQuery("reviews", () =>
-    fetch("reviews.json").then((res) => res.json())
+    fetch("http://localhost:5000/review").then((res) => res.json())
   );
 
   if (isLoading) {
