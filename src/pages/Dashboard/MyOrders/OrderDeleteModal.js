@@ -1,38 +1,52 @@
 import React from "react";
+import toast from "react-hot-toast";
 
 const OrderDeleteModal = ({ orderForDelete, setOrderForDelete }) => {
-  // console.log(order);
-
   const [order, refetch] = orderForDelete;
+
+  const handleDelete = (order) => {
+    fetch(`http://localhost:5000/delete`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${window.localStorage.getItem("accessToken")}`,
+      },
+      body: JSON.stringify({ order }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount) {
+          refetch();
+          setOrderForDelete(null);
+        } else {
+          toast.error("Something went wrong.");
+        }
+      });
+  };
 
   return (
     <div>
-      {/* <!-- The button to open modal --> */}
-      <label for="order-delete-modal" class="btn modal-button">
-        open modal
-      </label>
-
       {/* <!-- Put this part before </body> tag --> */}
       <input type="checkbox" id="order-delete-modal" class="modal-toggle" />
       <div class="modal">
         <div class="modal-box">
-          <h3 class="font-bold text-lg">
-            Congratulations random Interner user!
-          </h3>
+          <h3 class="font-bold text-lg">WARNING!</h3>
           <p class="py-4">
-            You've been selected for a chance to get one year of subscription to
-            use Wikipedia for free!
+            You wanna delete {order.itemName} from your orders?
           </p>
           <div class="modal-action">
-            <label
-              onClick={() => {
-                setOrderForDelete(null);
-                refetch();
-              }}
-              class="btn"
+            <button
+              onClick={() => setOrderForDelete(null)}
+              className="btn btn-primary"
             >
-              Yay!
-            </label>
+              Cancel
+            </button>
+            <button
+              onClick={() => handleDelete(order)}
+              className="btn btn-warning"
+            >
+              Confirmed
+            </button>
           </div>
         </div>
       </div>
