@@ -11,6 +11,7 @@ import RequireAuth from "./pages/Login/RequireAuth";
 import Purchase from "./pages/Purchase/Purchase";
 import Dashboard from "./pages/Dashboard/Dashboard/Dashboard";
 import MyOrders from "./pages/Dashboard/MyOrders/MyOrders";
+import Payment from "./pages/Dashboard/Payment/Payment";
 
 function App() {
   return (
@@ -31,6 +32,14 @@ function App() {
           <Route
             path="/dashboard/myOrders"
             element={<MyOrders></MyOrders>}
+          ></Route>
+          <Route
+            path="/dashboard/payment/:id"
+            element={
+              <RequireAuth>
+                <Payment></Payment>
+              </RequireAuth>
+            }
           ></Route>
           <Route
             path="/dashboard/addReview"
