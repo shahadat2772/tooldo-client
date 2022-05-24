@@ -1,20 +1,9 @@
-import React from "react";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCoffee,
-  faUserGroup,
-  faMoneyBill1Wave,
-  faGlobe,
-  faTrashCan,
-} from "@fortawesome/free-solid-svg-icons";
-
+import React, { useContext } from "react";
+import { orderDeleteContext } from "../Dashboard/Dashboard";
 const EachOrderRow = ({ refetch, index, order }) => {
+  const { orderForDelete, setOrderForDelete } = useContext(orderDeleteContext);
+
   const { name, itemName, quantity, price, email, _id, paid } = order;
-
-  console.log(quantity, price);
-
-  console.log(order);
 
   return (
     <tr>
@@ -28,7 +17,13 @@ const EachOrderRow = ({ refetch, index, order }) => {
           {!paid && (
             <div>
               <button className="btn btn-xs btn-success">PAY</button>
-              <button className="btn btn-xs btn-warning ml-1">CAL</button>
+              <label
+                onClick={() => setOrderForDelete([order, refetch])}
+                className="btn btn-xs btn-warning ml-1"
+                htmlFor="order-delete-modal"
+              >
+                CAL
+              </label>
             </div>
           )}
         </div>
