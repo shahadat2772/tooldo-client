@@ -90,7 +90,27 @@ const CheckoutForm = ({ order }) => {
       setCardError("");
       setTransactionId(paymentIntent.id);
       setConfirmed("We have received your payment.");
-      console.log(paymentIntent);
+
+      //   UPDATING PAYMENT INFO
+      const info = {
+        transactionId: paymentIntent.id,
+        id: order._id,
+      };
+
+      fetch("http://localhost:5000/confirmOrder", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${window.localStorage.getItem("accessToken")}`,
+        },
+        body: JSON.stringify({ info }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.modifiedCount) {
+          }
+          console.log(data);
+        });
     }
   };
 

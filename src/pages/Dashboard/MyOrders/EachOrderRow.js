@@ -35,6 +35,15 @@ const EachOrderRow = ({ refetch, index, order }) => {
               </label>
             </div>
           )}
+          {paid && (
+            <div>
+              <p className="text-secondary">PAID</p>
+              <p>
+                Transaction:{" "}
+                <span className="text-orange-500">{order?.transactionId}</span>
+              </p>
+            </div>
+          )}
         </div>
       </td>
     </tr>
