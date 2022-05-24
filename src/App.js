@@ -14,6 +14,7 @@ import MyOrders from "./pages/Dashboard/MyOrders/MyOrders";
 import Payment from "./pages/Dashboard/Payment/Payment";
 import AddReview from "./pages/Dashboard/AddReview/AddReview";
 import MyProfile from "./pages/Dashboard/MyProfile/MyProfile";
+import UpdateProfile from "./pages/Dashboard/MyProfile/UpdateProfile";
 
 function App() {
   return (
@@ -56,6 +57,14 @@ function App() {
             element={
               <RequireAuth>
                 <MyProfile></MyProfile>
+              </RequireAuth>
+            }
+          ></Route>
+          <Route
+            path="/dashboard/updateProfile/:email"
+            element={
+              <RequireAuth>
+                <UpdateProfile></UpdateProfile>
               </RequireAuth>
             }
           ></Route>

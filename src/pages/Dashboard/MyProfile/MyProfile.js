@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
+import { useNavigate } from "react-router-dom";
 import { auth } from "../../../firebase.init";
 import Loading from "../../Shared/Loading/Loading";
 
 const MyProfile = () => {
+  const navigate = useNavigate();
+
   const [user, loading] = useAuthState(auth);
   const [userInfo, setUserInfo] = useState({});
 
@@ -64,7 +67,12 @@ const MyProfile = () => {
               </p>
               <hr />
               <div class="card-actions">
-                <button class="ml-auto btn btn-primary mt-4">UPDATE</button>
+                <button
+                  onClick={() => navigate(`/dashboard/updateProfile/${email}`)}
+                  class="ml-auto btn btn-primary mt-4"
+                >
+                  UPDATE
+                </button>
               </div>
             </div>
           </div>

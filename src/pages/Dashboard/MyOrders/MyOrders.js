@@ -4,7 +4,10 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../../firebase.init";
 import Loading from "../../Shared/Loading/Loading";
 import EachOrderRow from "./EachOrderRow";
+import { useNavigate } from "react-router-dom";
 const MyOrders = () => {
+  const navigate = useNavigate();
+
   const [user, loading] = useAuthState(auth);
 
   const email = user?.email;
