@@ -5,14 +5,13 @@ import Loading from "../../Shared/Loading/Loading";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
-// import {Elements } from "react-s"
+
+// REACT STRIPE
+const stripePromise = loadStripe(
+  "pk_test_51L105BIxM8sRxo2mh9agH6bogilwho5NgGj1UqtzfXtlLoaBTG4ufhc31Kem5Og0H5bfx1cfv87lGEZTNgDWGTTR007hgLkB5x"
+);
 
 const Payment = () => {
-  // REACT STRIPE
-  const stripePromise = loadStripe(
-    "pk_test_51L105BIxM8sRxo2mh9agH6bogilwho5NgGj1UqtzfXtlLoaBTG4ufhc31Kem5Og0H5bfx1cfv87lGEZTNgDWGTTR007hgLkB5x"
-  );
-
   const { id } = useParams();
 
   const { data: order, isLoading } = useQuery(["gettingOrderById", id], () =>
