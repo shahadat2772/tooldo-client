@@ -54,6 +54,7 @@ const Purchase = () => {
       email,
       address,
       phone,
+      price,
     };
 
     console.log();
