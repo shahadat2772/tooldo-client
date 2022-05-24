@@ -6,14 +6,15 @@ const EachOrderRow = ({ refetch, index, order }) => {
 
   const { orderForDelete, setOrderForDelete } = useContext(orderDeleteContext);
 
-  const { name, itemName, quantity, price, email, _id, paid } = order;
+  const { name, itemName, quantity, price, email, _id, paid, totalPrice } =
+    order;
 
   return (
     <tr>
       <th>{index + 1}</th>
       <td>{itemName}</td>
       <td>{quantity}pcs</td>
-      <td>${parseInt(price) * parseInt(quantity)}</td>
+      <td>${totalPrice}</td>
       <td>{email}</td>
       <td>
         <div>

@@ -47,7 +47,10 @@ const Purchase = () => {
     const phone = data.phone;
     const quantity = data.quantity;
 
+    const totalPrice = parseInt(price) * parseInt(quantity);
+
     const order = {
+      image,
       itemName,
       quantity,
       name,
@@ -55,6 +58,7 @@ const Purchase = () => {
       address,
       phone,
       price,
+      totalPrice,
     };
 
     console.log();
