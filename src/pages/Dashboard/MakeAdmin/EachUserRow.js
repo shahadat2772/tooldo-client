@@ -1,10 +1,12 @@
 import React from "react";
+import toast from "react-hot-toast";
 
-const EachUserRow = ({ user, index }) => {
+const EachUserRow = ({ user, index, refetch }) => {
   const handleMakeAdmin = (email) => {
-    console.log(email);
+    toast.loading("Please wait.", {
+      id: "makeAdminToast",
+    });
     const userInfo = { email: email };
-    console.log(userInfo);
 
     fetch("http://localhost:5000/makeAdmin", {
       method: "POST",
@@ -15,7 +17,12 @@ const EachUserRow = ({ user, index }) => {
       body: JSON.stringify({ userInfo }),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        if (data.modifiedCount) {
+          toast.dismiss("makeAdminToast");
+          refetch();
+        }
+      });
   };
 
   const { name, email, role, _id } = user;

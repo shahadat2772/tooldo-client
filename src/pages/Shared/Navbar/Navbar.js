@@ -7,10 +7,6 @@ import Loading from "../../Shared/Loading/Loading";
 const Navbar = () => {
   const [user, loading] = useAuthState(auth);
 
-  if (loading) {
-    return <Loading></Loading>;
-  }
-
   console.log(user);
 
   const navLinks = (

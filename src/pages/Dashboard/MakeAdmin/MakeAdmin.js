@@ -4,7 +4,11 @@ import Loading from "../../Shared/Loading/Loading";
 import EachUserRow from "./EachUserRow";
 
 const MakeAdmin = () => {
-  const { data: users, isLoading } = useQuery("allUsers", () =>
+  const {
+    data: users,
+    isLoading,
+    refetch,
+  } = useQuery("allUsers", () =>
     fetch("http://localhost:5000/users", {
       headers: {
         authorization: `Bearer ${window.localStorage.getItem("accessToken")}`,
@@ -35,6 +39,7 @@ const MakeAdmin = () => {
             {/* <!-- row 1 --> */}
             {users?.map((user, index) => (
               <EachUserRow
+                refetch={refetch}
                 index={index}
                 key={user._id}
                 user={user}
