@@ -3,11 +3,13 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import { auth } from "../../../firebase.init";
 import { signOut } from "firebase/auth";
-
+import Loading from "../../Shared/Loading/Loading";
 const Navbar = () => {
   const [user, loading] = useAuthState(auth);
 
-  console.log(user);
+  if (loading) {
+    return <Loading></Loading>;
+  }
 
   const navLinks = (
     <>
