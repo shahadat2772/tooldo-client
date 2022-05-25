@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
@@ -9,6 +9,8 @@ import toast from "react-hot-toast";
 
 const Purchase = () => {
   const { id } = useParams();
+
+  const [confirmed, setConfirmed] = useState(false);
 
   const [user, loading] = useAuthState(auth);
 
@@ -74,6 +76,8 @@ const Purchase = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
+          setConfirmed(true);
+          reset();
           toast.success(`Your order is placed successfully.`);
         } else {
           toast.error("Doh! Something terrible happened.");
@@ -256,7 +260,7 @@ const Purchase = () => {
 
             <div class="form-control mt-2">
               <button
-                disabled={errors?.quantity?.message}
+                disabled={errors?.quantity?.message || confirmed}
                 class="btn btn-primary"
               >
                 PLACE ORDER

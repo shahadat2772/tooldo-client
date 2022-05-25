@@ -7,11 +7,14 @@ const AddProduct = () => {
   const navigate = useNavigate();
 
   // FORM hook
-  const { register, handleSubmit, watch } = useForm();
+  const { register, handleSubmit, watch, reset } = useForm();
 
   //  IMG KEY
   const imageStorageKey = `1ada22c843bec539f6c33ffc5484c2a5`;
   const onSubmit = async (data) => {
+    toast.loading("Please wait.", {
+      id: "productAddingToast",
+    });
     const { name, price, minimumOrderQuant, availableQuant, description } =
       data;
 
@@ -54,7 +57,8 @@ const AddProduct = () => {
             .then((res) => res.json())
             .then((result) => {
               if (result.insertedId) {
-                console.log(result);
+                reset();
+                toast.dismiss("productAddingToast");
                 toast.success("Product added successfully.");
               } else {
                 toast.error("Doh, something terrible happened.");

@@ -9,7 +9,7 @@ const AddReview = () => {
   const [user, loading] = useAuthState(auth);
 
   // FORM hook
-  const { register, handleSubmit, watch } = useForm();
+  const { register, handleSubmit, watch, reset } = useForm();
 
   if (loading) {
     return <Loading></Loading>;
@@ -54,6 +54,7 @@ const AddReview = () => {
       .then((data) => {
         console.log(data);
         if (data.insertedId) {
+          reset();
           toast.success("Thanks, for your precious review.");
         }
       });

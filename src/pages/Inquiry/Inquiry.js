@@ -31,7 +31,6 @@ const Inquiry = () => {
     <section className="px-4">
       <div
         style={{
-          //   backgroundImage: `url('https://i.ibb.co/DzWFrjh/banner-1.jpg')`,
           backgroundImage: `url('https://i.ibb.co/KWrmnyP/newBG-1.jpg')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -42,7 +41,7 @@ const Inquiry = () => {
           style={{
             position: "absolute",
           }}
-          className="bannerContent w-[400px] left-[35%]  top-[18%] "
+          className="bannerContent w-[300px] md:w-[400px] left-[5%] md:left-[35%] top-[25%] md:top-[18%]"
         >
           <h2
             style={{ fontFamily: "Oswald" }}

@@ -35,7 +35,7 @@ const MyProfile = () => {
   return (
     <div className="p-6">
       <div className="usersInfoContainer">
-        <div class="card w-[650px] bg-base-100 shadow mx-auto">
+        <div class="card md:w-[650px] bg-base-100 shadow mx-auto">
           {/* <div className="text-center text-2xl py-6">Your Profile</div> */}
           <figure class="px-10 pt-4">
             <div class="avatar">
@@ -49,7 +49,7 @@ const MyProfile = () => {
           </figure>
           <div class="card-body pt-4 items-center ">
             <h2 class="card-title">Hello, {name}</h2>
-            <div className="usersSubInfo text-info w-96">
+            <div className="usersSubInfo text-info md:w-96">
               <p className="py-[10px]">Email: {email}</p>
               <hr />
               <p className="py-[10px]">

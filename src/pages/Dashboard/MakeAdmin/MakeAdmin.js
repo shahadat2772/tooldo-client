@@ -23,7 +23,7 @@ const MakeAdmin = () => {
   console.log(users);
 
   return (
-    <div className="py-6">
+    <div className="p-6">
       <div class="overflow-x-auto">
         <table class="table w-full">
           {/* <!-- head --> */}

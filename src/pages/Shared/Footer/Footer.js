@@ -10,7 +10,7 @@ import {
 
 const Footer = () => {
   return (
-    <div>
+    <div className="mt-10">
       <hr />
       <footer class="footer p-10  text-base-content">
         <div>
