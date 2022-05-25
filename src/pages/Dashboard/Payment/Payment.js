@@ -33,21 +33,6 @@ const Payment = () => {
         <figure>
           <img className="w-80" src={order?.image} alt="Shoes" />
         </figure>
-        {/* <div class="card-body"> */}
-        {/* <p className="py-[0px]">Item: {order?.itemName}</p>
-            <hr />
-            <p className="py-[0px]">Quant: {order?.quantity}pcs</p>
-            <hr />
-            <p className="py-[0px]">
-              Total: ${parseInt(order?.quantity) * parseInt(order?.price)}
-            </p>
-            <hr />
-            <p className="py-[0px]">Email: {order.email}</p>
-            <hr />
-            <p className="py-[0px]">Address: {order.address}</p> */}
-        {/* </div> */}
-        {/* </div> */}
-
         <div class="card-body justify-center">
           <h2 class="card-title">
             {order.name}, <br /> Confirm your order.

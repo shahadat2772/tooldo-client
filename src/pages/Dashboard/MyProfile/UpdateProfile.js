@@ -2,15 +2,18 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Loading from "../../Shared/Loading/Loading";
-
+import toast from "react-hot-toast";
 const UpdateProfile = () => {
   const navigate = useNavigate();
+
+  const [imageUrl, setImageUrl] = useState("");
 
   const [userInfo, setUserInfo] = useState({});
   const {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
   } = useForm();
 
@@ -39,9 +42,101 @@ const UpdateProfile = () => {
     image,
   } = userInfo;
 
+  // Img hosting key
+  const imageStorageKey = `1ada22c843bec539f6c33ffc5484c2a5`;
+
   // Handling form submit
   const onSubmit = async (data) => {
-    console.log(data);
+    toast.loading("Please wait.", {
+      id: "userInfoLoading",
+    });
+    const name = document.getElementById("nameField").value;
+    const email = document.getElementById("emailField").value;
+    const education = data.education;
+    const address = data.address;
+    const phone = data.phone;
+    const linkedIn = data.linkedIn;
+    const file = data.file[0];
+
+    if (file) {
+      const formData = new FormData();
+      formData.append("image", file);
+      const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
+
+      fetch(url, {
+        method: "POST",
+        body: formData,
+      })
+        .then((res) => res.json())
+        .then((result) => {
+          console.log(result);
+          if (result.success) {
+            const uploadedImgUrl = result.data.url;
+
+            const updatedInfo = {
+              name,
+              email,
+              education,
+              address,
+              phone,
+              linkedIn,
+              image: uploadedImgUrl,
+            };
+
+            console.log(updatedInfo);
+
+            fetch(`http://localhost:5000/updateProfileInfo/${_id}`, {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+                authorization: `Bearer ${window.localStorage.getItem(
+                  "accessToken"
+                )}`,
+              },
+              body: JSON.stringify({ updatedInfo }),
+            })
+              .then((res) => res.json())
+              .then((updated) => {
+                if (updated.modifiedCount) {
+                  toast.dismiss("userInfoLoading");
+                  toast.success("Info updated successfully.");
+                  navigate("/dashboard/myProfile");
+                } else {
+                  toast.error("Doh, something terrible happened.");
+                }
+              });
+          }
+        });
+    } else {
+      const updatedInfo = {
+        name,
+        email,
+        education,
+        address,
+        phone,
+        linkedIn,
+        image: image || "",
+      };
+
+      fetch(`http://localhost:5000/updateProfileInfo/${_id}`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${window.localStorage.getItem("accessToken")}`,
+        },
+        body: JSON.stringify({ updatedInfo }),
+      })
+        .then((res) => res.json())
+        .then((updated) => {
+          if (updated.modifiedCount) {
+            toast.dismiss("userInfoLoading");
+            toast.success("Info updated successfully.");
+            navigate("/dashboard/myProfile");
+          } else {
+            toast.error("Doh, something terrible happened.");
+          }
+        });
+    }
   };
 
   return (
@@ -57,7 +152,7 @@ const UpdateProfile = () => {
                 <span class="label-text">Name</span>
               </label>
               <input
-                {...register("name")}
+                id="nameField"
                 required
                 defaultValue={name}
                 type="text"
@@ -71,7 +166,7 @@ const UpdateProfile = () => {
                 <span class="label-text">Email</span>
               </label>
               <input
-                {...register("email")}
+                id="emailField"
                 defaultValue={userEmail}
                 disabled
                 type="email"
@@ -108,6 +203,20 @@ const UpdateProfile = () => {
               />
             </div>
 
+            {/* Number input */}
+            <div class="form-control">
+              <label class="label py-[2px] ">
+                <span class="label-text">Phone</span>
+              </label>
+              <input
+                {...register("phone")}
+                defaultValue={phone}
+                type="text"
+                placeholder="Phone"
+                class="input input-bordered"
+              />
+            </div>
+
             {/* Linkdin input */}
             <div class="form-control">
               <label class="label py-[2px] ">
@@ -128,7 +237,7 @@ const UpdateProfile = () => {
                 <span class="label-text">Profile Photo</span>
               </label>
               <input
-                {...register("image")}
+                {...register("file")}
                 type="file"
                 placeholder="LinkedIn profile link"
                 class="input input-bordered"

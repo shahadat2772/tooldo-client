@@ -71,7 +71,7 @@ const MyProfile = () => {
                   onClick={() => navigate(`/dashboard/updateProfile/${email}`)}
                   class="ml-auto btn btn-primary mt-4"
                 >
-                  UPDATE
+                  UPDATE INFO
                 </button>
               </div>
             </div>
