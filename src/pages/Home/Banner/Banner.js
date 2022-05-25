@@ -6,6 +6,7 @@ const Banner = () => {
       <div
         style={{
           backgroundImage: `url('https://i.ibb.co/DzWFrjh/banner-1.jpg')`,
+          // backgroundImage: `url('https://i.ibb.co/KWrmnyP/newBG-1.jpg')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
