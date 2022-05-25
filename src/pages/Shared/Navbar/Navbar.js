@@ -14,6 +14,9 @@ const Navbar = () => {
       <li>
         <Link to={"/home"}>Home</Link>
       </li>
+      <li>
+        <Link to={"/myPortfolio"}>My Portfolio</Link>
+      </li>
       {/* ONLY USERS ROUTE */}
       {user && (
         <>
