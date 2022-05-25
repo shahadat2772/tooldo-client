@@ -19,6 +19,7 @@ import ManageOrders from "./pages/Dashboard/ManageOrders/ManageOrders";
 import RequireAdmin from "./pages/Login/RequireAdmin";
 import MakeAdmin from "./pages/Dashboard/MakeAdmin/MakeAdmin";
 import AddProduct from "./pages/Dashboard/AddProduct/AddProduct";
+import NotFound from "./pages/Shared/NotFound/NotFound";
 
 function App() {
   return (
@@ -118,6 +119,7 @@ function App() {
         ></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
+        <Route path="/*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <Toaster></Toaster>
     </div>
