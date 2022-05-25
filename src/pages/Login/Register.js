@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import {
   useCreateUserWithEmailAndPassword,
@@ -26,27 +26,33 @@ const Register = () => {
     useCreateUserWithEmailAndPassword(auth);
 
   const [updateProfile, updating, uerror] = useUpdateProfile(auth);
+  console.log(updating);
 
-  const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
+  const [signInWithGoogle, gUser, gloading, gerror] = useSignInWithGoogle(auth);
 
   console.log(user);
+  const [epUser, setEpUser] = useState(null);
   // TOKEN HOOK
-  const [token] = useToken(user || guser);
+  const [token] = useToken(epUser || gUser);
+
+  // Handling form submit
+  const onSubmit = async (data) => {
+    const displayName = data.name;
+    const email = data.email;
+    const password = data.password;
+    await createUserWithEmailAndPassword(email, password);
+    await updateProfile({ displayName });
+  };
+
+  useEffect(() => {
+    if (user && !updating) {
+      setEpUser(user);
+    }
+  }, [user, updating]);
 
   if (loading || updating || gloading) {
     return <Loading></Loading>;
   }
-
-  // Handling form submit
-  const onSubmit = async (data) => {
-    console.log(data);
-    const name = data.name;
-    const email = data.email;
-    const password = data.password;
-    await createUserWithEmailAndPassword(email, password);
-    await updateProfile({ displayName: name });
-    console.log(user || guser);
-  };
 
   let errorElement;
 

@@ -11,6 +11,8 @@ const Navbar = () => {
     return <Loading></Loading>;
   }
 
+  console.log(user);
+
   const navLinks = (
     <>
       <li>
@@ -33,7 +35,7 @@ const Navbar = () => {
           }}
         >
           <a className="flex gap-1">
-            <p>{user?.displayName?.split(" ")[0]}</p>
+            <p>{user?.displayName}</p>
             <p>logout</p>
           </a>
         </li>
