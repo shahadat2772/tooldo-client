@@ -4,15 +4,20 @@ import { Link, Outlet } from "react-router-dom";
 import { auth } from "../../../firebase.init";
 import Loading from "../../Shared/Loading/Loading";
 import OrderDeleteModal from "../MyOrders/OrderDeleteModal";
+import useAdmin from "../../../hooks/useAdmin";
 
 export const orderDeleteContext = createContext();
 
 const Dashboard = () => {
   const [user, loading] = useAuthState(auth);
 
+  const [admin, adminLoading] = useAdmin(user);
+
+  console.log(admin);
+
   const [orderForDelete, setOrderForDelete] = useState(null);
 
-  if (loading) {
+  if (loading || adminLoading) {
     return <Loading></Loading>;
   }
 

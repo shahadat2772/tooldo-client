@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 
 const useAdmin = (user) => {
-  const [admin, setAdmin] = useState(undefined);
+  const [admin, setAdmin] = useState("");
   const [adminLoading, setAdminLoading] = useState(true);
 
   useEffect(() => {
     if (user) {
       const email = { email: user?.email };
+      console.log(email);
+
       fetch("http://localhost:5000/isAdmin", {
         method: "POST",
         headers: {
@@ -22,8 +24,8 @@ const useAdmin = (user) => {
           setAdminLoading(false);
         });
     }
-
-    return [admin, adminLoading];
   }, [user]);
+
+  return [admin, adminLoading];
 };
 export default useAdmin;
