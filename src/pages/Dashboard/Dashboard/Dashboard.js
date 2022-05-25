@@ -24,7 +24,8 @@ const Dashboard = () => {
   // Nested menu items
   const items = (
     <>
-      {user && (
+      {/* ONLY USERS ROUTES */}
+      {user && !admin && (
         <>
           <li>
             <Link to={`/dashboard/myOrders`}>My Orders</Link>
@@ -32,11 +33,32 @@ const Dashboard = () => {
           <li>
             <Link to={`/dashboard/addReview`}>Add A Review</Link>
           </li>
+        </>
+      )}
+
+      {/* ONLY ADMIN ROUTES */}
+
+      {user && admin && (
+        <>
           <li>
-            <Link to={`/dashboard/myProfile`}>My Profile</Link>
+            <Link to={`/dashboard/manageOrders`}>Manage Orders</Link>
+          </li>
+          <li>
+            <Link to={`/dashboard/addReview`}>Add Product</Link>
+          </li>
+          <li>
+            <Link to={`/dashboard/addReview`}>Manage Products</Link>
+          </li>
+          <li>
+            <Link to={`/dashboard/addReview`}>Make Admin</Link>
           </li>
         </>
       )}
+
+      {/* COMMON ROUTES */}
+      <li>
+        <Link to={`/dashboard/myProfile`}>My Profile</Link>
+      </li>
     </>
   );
 

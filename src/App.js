@@ -15,6 +15,8 @@ import Payment from "./pages/Dashboard/Payment/Payment";
 import AddReview from "./pages/Dashboard/AddReview/AddReview";
 import MyProfile from "./pages/Dashboard/MyProfile/MyProfile";
 import UpdateProfile from "./pages/Dashboard/MyProfile/UpdateProfile";
+import ManageOrders from "./pages/Dashboard/ManageOrders/ManageOrders";
+import RequireAdmin from "./pages/Login/RequireAdmin";
 
 function App() {
   return (
@@ -32,6 +34,7 @@ function App() {
           }
         >
           {/* Nested Routs */}
+          {/* ONLY USER ROUTES */}
           <Route
             path="/dashboard/myOrders"
             element={<MyOrders></MyOrders>}
@@ -66,6 +69,16 @@ function App() {
               <RequireAuth>
                 <UpdateProfile></UpdateProfile>
               </RequireAuth>
+            }
+          ></Route>
+
+          {/* ONLY ADMIN ROUTS */}
+          <Route
+            path="/dashboard/manageOrders"
+            element={
+              <RequireAdmin>
+                <ManageOrders></ManageOrders>
+              </RequireAdmin>
             }
           ></Route>
         </Route>
