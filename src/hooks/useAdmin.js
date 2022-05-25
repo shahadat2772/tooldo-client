@@ -7,7 +7,6 @@ const useAdmin = (user) => {
   useEffect(() => {
     if (user) {
       const email = { email: user?.email };
-      console.log(email);
 
       fetch("http://localhost:5000/isAdmin", {
         method: "POST",

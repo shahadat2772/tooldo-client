@@ -8,11 +8,7 @@ const OurTeam = () => {
   const navigate = useNavigate();
 
   const { data: members, isLoading } = useQuery("members", () =>
-    fetch("http://localhost:5000/teamMember", {
-      headers: {
-        authorization: `Bearer ${window.localStorage.getItem("accessToken")}`,
-      },
-    }).then((res) => res.json())
+    fetch("http://localhost:5000/teamMember").then((res) => res.json())
   );
 
   if (isLoading) {

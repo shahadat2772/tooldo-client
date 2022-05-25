@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const useToken = (user) => {
   const [token, setToken] = useState("");
-
+  console.log(user);
   useEffect(() => {
     if (user) {
       const name = user?.user?.displayName;
@@ -19,6 +19,7 @@ const useToken = (user) => {
       })
         .then((res) => res.json())
         .then((result) => {
+          console.log(result);
           const token = result?.accessToken;
           window.localStorage.setItem("accessToken", token);
           setToken(token);

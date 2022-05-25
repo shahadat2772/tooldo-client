@@ -7,6 +7,8 @@ import { signOut } from "firebase/auth";
 const Navbar = () => {
   const [user, loading] = useAuthState(auth);
 
+  console.log(user);
+
   const navLinks = (
     <>
       <li>
@@ -29,7 +31,7 @@ const Navbar = () => {
           }}
         >
           <a className="flex gap-1">
-            <p>{user.displayName.split(" ")[0]}</p>
+            <p>{user?.displayName?.split(" ")[0]}</p>
             <p>logout</p>
           </a>
         </li>

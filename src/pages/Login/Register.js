@@ -9,7 +9,6 @@ import { auth } from "../../firebase.init";
 import Loading from "../Shared/Loading/Loading";
 import useToken from "../../hooks/useToken";
 import { Link, useNavigate } from "react-router-dom";
-import { async } from "@firebase/util";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -22,14 +21,22 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
-  const [createUserWithEmailAndPassword, user, eploading, epError] =
-    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+  // User creator hook using email and password
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+
   const [updateProfile, updating, uerror] = useUpdateProfile(auth);
 
   const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
 
+  console.log(user);
   // TOKEN HOOK
-  const [token, tokenLoading] = useToken(guser || user);
+  const [token] = useToken(user || guser);
+
+  if (loading || updating || gloading) {
+    return <Loading></Loading>;
+  }
+
   // Handling form submit
   const onSubmit = async (data) => {
     console.log(data);
@@ -41,15 +48,12 @@ const Register = () => {
     console.log(user || guser);
   };
 
-  if (gloading || eploading || tokenLoading || updating) {
-    return <Loading></Loading>;
-  }
-
   let errorElement;
-  if (gerror || epError) {
+
+  if (error || gerror) {
     errorElement = (
       <p className="text-error text-[12px] mt-1 m-0">
-        {gerror?.message || epError?.message}
+        {error?.message || gerror?.message}
       </p>
     );
   }
@@ -77,7 +81,7 @@ const Register = () => {
                   },
                 })}
                 type="text"
-                placeholder="email"
+                placeholder="Name"
                 class="input input-bordered"
               />
               {/* Name field ERRORS */}
