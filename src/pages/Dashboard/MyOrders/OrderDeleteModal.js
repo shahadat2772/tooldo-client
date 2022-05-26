@@ -31,9 +31,7 @@ const OrderDeleteModal = ({ orderForDelete, setOrderForDelete }) => {
       <div className="modal">
         <div className="modal-box">
           <h3 className="font-bold text-lg">WARNING!</h3>
-          <p className="py-4">
-            You wanna delete {order.itemName} from your orders?
-          </p>
+          <p className="py-4">You wanna delete {order.itemName} from orders?</p>
           <div className="modal-action">
             <button
               onClick={() => setOrderForDelete(null)}

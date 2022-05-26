@@ -6,8 +6,17 @@ const EachOrderRow = ({ refetch, index, order }) => {
 
   const { orderForDelete, setOrderForDelete } = useContext(orderDeleteContext);
 
-  const { name, itemName, quantity, price, email, _id, status, totalPrice } =
-    order;
+  const {
+    name,
+    itemName,
+    quantity,
+    price,
+    email,
+    _id,
+    status,
+    paid,
+    totalPrice,
+  } = order;
 
   return (
     <tr>
@@ -18,7 +27,7 @@ const EachOrderRow = ({ refetch, index, order }) => {
       <td>{email}</td>
       <td>
         <div>
-          {status === "pending" && (
+          {!paid && (
             <div>
               <button
                 onClick={() => navigate(`/dashboard/payment/${order._id}`)}
@@ -35,7 +44,7 @@ const EachOrderRow = ({ refetch, index, order }) => {
               </label>
             </div>
           )}
-          {status === "paid" && (
+          {paid && (
             <div>
               <p className="text-secondary">PAID</p>
               <p>
