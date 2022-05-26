@@ -5,8 +5,6 @@ const ProductDeleteModal = ({ setProductForDelete, productForDelete }) => {
   const [product, refetch] = productForDelete;
 
   const handleDelete = (product) => {
-    console.log(product);
-
     fetch(`http://localhost:5000/deleteItem`, {
       method: "DELETE",
       headers: {
