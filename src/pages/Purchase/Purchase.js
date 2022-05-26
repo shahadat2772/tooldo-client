@@ -60,6 +60,7 @@ const Purchase = () => {
       phone,
       price,
       totalPrice,
+      status: "pending",
     };
 
     fetch(`http://localhost:5000/order`, {
