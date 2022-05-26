@@ -24,7 +24,11 @@ const Purchase = () => {
   } = useForm();
 
   const { data: item, isLoading } = useQuery(["itemById", id], () =>
-    fetch(`http://localhost:5000/item/${id}`).then((res) => res.json())
+    fetch(`http://localhost:5000/item/${id}`, {
+      headers: {
+        authorization: `Bearer ${window.localStorage.getItem("accessToken")}`,
+      },
+    }).then((res) => res.json())
   );
 
   if (isLoading || loading) {

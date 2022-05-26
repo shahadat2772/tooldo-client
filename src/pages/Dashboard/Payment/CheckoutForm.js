@@ -81,6 +81,7 @@ const CheckoutForm = ({ order }) => {
     );
 
     if (intentErr) {
+      toast.dismiss("waitingToast");
       setCardError(intentErr?.message);
       setConfirmed("");
     } else {
