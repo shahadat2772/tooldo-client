@@ -20,8 +20,6 @@ const MakeAdmin = () => {
     return <Loading></Loading>;
   }
 
-  console.log(users);
-
   return (
     <div className="p-6">
       <div class="overflow-x-auto">

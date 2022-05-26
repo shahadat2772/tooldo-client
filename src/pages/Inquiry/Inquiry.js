@@ -18,7 +18,6 @@ const Inquiry = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.insertedId) {
           reset();
           toast.success("Thanks a lot! We have received your inquiry.");

@@ -69,7 +69,6 @@ const UpdateProfile = () => {
       })
         .then((res) => res.json())
         .then((result) => {
-          console.log(result);
           if (result.success) {
             const uploadedImgUrl = result.data.url;
 
@@ -82,8 +81,6 @@ const UpdateProfile = () => {
               linkedIn,
               image: uploadedImgUrl,
             };
-
-            console.log(updatedInfo);
 
             fetch(`http://localhost:5000/updateProfileInfo/${_id}`, {
               method: "POST",

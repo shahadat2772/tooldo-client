@@ -30,7 +30,6 @@ const AddProduct = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
         if (result.success) {
           const image = result.data.url;
 
@@ -42,8 +41,6 @@ const AddProduct = () => {
             availableQuant,
             price,
           };
-
-          console.log(product);
 
           fetch(`http://localhost:5000/addProduct`, {
             method: "POST",

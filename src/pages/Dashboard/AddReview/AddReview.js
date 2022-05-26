@@ -27,7 +27,6 @@ const AddReview = () => {
   const today = `${d}/${m}/${y}`;
 
   const onSubmit = async (data) => {
-    console.log(data);
     const reviewText = data.review;
     const country = data.country;
     const ratings = data.ratings;
@@ -52,7 +51,6 @@ const AddReview = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.insertedId) {
           reset();
           toast.success("Thanks, for your precious review.");

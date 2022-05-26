@@ -2,14 +2,12 @@ import { useEffect, useState } from "react";
 
 const useToken = (user) => {
   const [token, setToken] = useState("");
-  console.log(user);
+
   useEffect(() => {
     if (user) {
       const name = user?.user?.displayName;
       const userEmail = user?.user?.email;
       const userInfo = { name: name, email: userEmail };
-
-      console.log(userInfo);
 
       fetch("http://localhost:5000/token", {
         method: "PUT",
@@ -20,7 +18,6 @@ const useToken = (user) => {
       })
         .then((res) => res.json())
         .then((result) => {
-          console.log(result);
           const token = result?.accessToken;
           window.localStorage.setItem("accessToken", token);
           setToken(token);

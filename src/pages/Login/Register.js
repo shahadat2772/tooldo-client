@@ -26,11 +26,9 @@ const Register = () => {
     useCreateUserWithEmailAndPassword(auth);
 
   const [updateProfile, updating, uerror] = useUpdateProfile(auth);
-  console.log(updating);
 
   const [signInWithGoogle, gUser, gloading, gerror] = useSignInWithGoogle(auth);
 
-  console.log(user);
   const [epUser, setEpUser] = useState(null);
   // TOKEN HOOK
   const [token] = useToken(epUser || gUser);

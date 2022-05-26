@@ -40,10 +40,9 @@ const Login = () => {
   const [token] = useToken(guser || user);
   // Handling form submit
   const onSubmit = async (data) => {
-    console.log(data);
     const email = data.email;
     const password = data.password;
-    console.log(email, password);
+
     await signInWithEmailAndPassword(email, password);
   };
 

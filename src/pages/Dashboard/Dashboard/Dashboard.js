@@ -13,8 +13,6 @@ const Dashboard = () => {
 
   const [admin, adminLoading] = useAdmin(user);
 
-  console.log(admin);
-
   const [orderForDelete, setOrderForDelete] = useState(null);
 
   if (loading || adminLoading) {

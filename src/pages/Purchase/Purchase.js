@@ -42,7 +42,6 @@ const Purchase = () => {
   } = item;
 
   const onSubmit = async (data) => {
-    console.log(data);
     const name = data.name;
     const email = data.email;
     const address = data.address;
@@ -62,8 +61,6 @@ const Purchase = () => {
       price,
       totalPrice,
     };
-
-    console.log();
 
     fetch(`http://localhost:5000/order`, {
       method: "POST",

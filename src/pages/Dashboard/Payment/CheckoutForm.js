@@ -10,12 +10,11 @@ import toast from "react-hot-toast";
 const CheckoutForm = ({ order }) => {
   const [confirmed, setConfirmed] = useState("");
   const [transactionId, setTransactionId] = useState("");
-  console.log(confirmed);
+
   // Storing the client secret
   const [clientSecret, setClientSecret] = useState("");
-  console.log(clientSecret);
+
   const [cardError, setCardError] = useState("");
-  console.log(cardError);
 
   const stripe = useStripe();
   const elements = useElements();
@@ -109,7 +108,6 @@ const CheckoutForm = ({ order }) => {
         .then((data) => {
           if (data.modifiedCount) {
           }
-          console.log(data);
         });
     }
   };
