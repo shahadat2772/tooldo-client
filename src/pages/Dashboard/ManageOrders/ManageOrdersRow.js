@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import toast from "react-hot-toast";
 import { orderDeleteContext } from "../Dashboard/Dashboard";
 const ManageOrdersRow = ({ order, refetch, index }) => {
   const { orderForDelete, setOrderForDelete } = useContext(orderDeleteContext);
@@ -12,7 +13,13 @@ const ManageOrdersRow = ({ order, refetch, index }) => {
       },
     })
       .then((res) => res.json())
-      .then((result) => console.log(result));
+      .then((result) => {
+        if (result.modifiedCount > 0) {
+          refetch();
+        } else {
+          toast.error("Doh, something terrible happened!");
+        }
+      });
   };
 
   return (
