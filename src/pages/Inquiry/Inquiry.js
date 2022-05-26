@@ -31,7 +31,7 @@ const Inquiry = () => {
     <section className="px-4">
       <div
         style={{
-          backgroundImage: { bg },
+          backgroundImage: `url('https://i.ibb.co/KWrmnyP/newBG-1.jpg')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
