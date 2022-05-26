@@ -5,6 +5,7 @@ import { auth } from "../../../firebase.init";
 import Loading from "../../Shared/Loading/Loading";
 import OrderDeleteModal from "../MyOrders/OrderDeleteModal";
 import useAdmin from "../../../hooks/useAdmin";
+import ProductDeleteModal from "../ManageProducts/ProductDeleteModal";
 
 export const orderDeleteContext = createContext();
 
@@ -14,6 +15,7 @@ const Dashboard = () => {
   const [admin, adminLoading] = useAdmin(user);
 
   const [orderForDelete, setOrderForDelete] = useState(null);
+  const [productForDelete, setProductForDelete] = useState(null);
 
   if (loading || adminLoading) {
     return <Loading></Loading>;
@@ -64,7 +66,12 @@ const Dashboard = () => {
       <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content">
         <orderDeleteContext.Provider
-          value={{ orderForDelete, setOrderForDelete }}
+          value={{
+            orderForDelete,
+            setOrderForDelete,
+            productForDelete,
+            setProductForDelete,
+          }}
         >
           <Outlet />
         </orderDeleteContext.Provider>
@@ -80,6 +87,12 @@ const Dashboard = () => {
           setOrderForDelete={setOrderForDelete}
           orderForDelete={orderForDelete}
         ></OrderDeleteModal>
+      )}
+      {productForDelete && (
+        <ProductDeleteModal
+          setProductForDelete={setProductForDelete}
+          productForDelete={productForDelete}
+        ></ProductDeleteModal>
       )}
     </div>
   );

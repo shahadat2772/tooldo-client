@@ -1,6 +1,9 @@
-import React from "react";
-
+import React, { useContext } from "react";
+import { orderDeleteContext } from "../Dashboard/Dashboard";
 const ManageProductRow = ({ product, refetch, index }) => {
+  const { productForDelete, setProductForDelete } =
+    useContext(orderDeleteContext);
+
   const { name, availableQuant, price } = product;
 
   return (
@@ -10,7 +13,13 @@ const ManageProductRow = ({ product, refetch, index }) => {
       <td>{availableQuant}pcs</td>
       <td>${price}</td>
       <td>
-        <button className="btn btn-warning btn-xs">DEL</button>
+        <label
+          onClick={() => setProductForDelete([product, refetch])}
+          className="btn btn-warning btn-xs"
+          htmlFor="product-delete-modal"
+        >
+          DEL
+        </label>
       </td>
     </tr>
   );
