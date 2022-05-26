@@ -15,7 +15,7 @@ const Payment = () => {
   const { id } = useParams();
 
   const { data: order, isLoading } = useQuery(["gettingOrderById", id], () =>
-    fetch(`http://localhost:5000/order/${id}`, {
+    fetch(`https://desolate-cove-12893.herokuapp.com/order/${id}`, {
       headers: {
         authorization: `Bearer ${window.localStorage.getItem("accessToken")}`,
       },

@@ -8,7 +8,9 @@ const OurTeam = () => {
   const navigate = useNavigate();
 
   const { data: members, isLoading } = useQuery("members", () =>
-    fetch("http://localhost:5000/teamMember").then((res) => res.json())
+    fetch("https://desolate-cove-12893.herokuapp.com/teamMember").then((res) =>
+      res.json()
+    )
   );
 
   if (isLoading) {

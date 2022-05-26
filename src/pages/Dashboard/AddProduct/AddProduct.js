@@ -42,7 +42,7 @@ const AddProduct = () => {
             price,
           };
 
-          fetch(`http://localhost:5000/addProduct`, {
+          fetch(`https://desolate-cove-12893.herokuapp.com/addProduct`, {
             method: "POST",
             headers: {
               "content-type": "application/json",

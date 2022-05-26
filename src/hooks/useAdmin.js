@@ -8,7 +8,7 @@ const useAdmin = (user) => {
     if (user) {
       const email = { email: user?.email };
 
-      fetch("http://localhost:5000/isAdmin", {
+      fetch("https://desolate-cove-12893.herokuapp.com/isAdmin", {
         method: "POST",
         headers: {
           "content-type": "application/json",

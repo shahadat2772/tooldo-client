@@ -5,7 +5,7 @@ const ProductDeleteModal = ({ setProductForDelete, productForDelete }) => {
   const [product, refetch] = productForDelete;
 
   const handleDelete = (product) => {
-    fetch(`http://localhost:5000/deleteItem`, {
+    fetch(`https://desolate-cove-12893.herokuapp.com/deleteItem`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",

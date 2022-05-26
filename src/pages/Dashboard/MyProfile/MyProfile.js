@@ -15,7 +15,7 @@ const MyProfile = () => {
     if (user) {
       const email = user?.email;
 
-      fetch(`http://localhost:5000/user/${email}`, {
+      fetch(`https://desolate-cove-12893.herokuapp.com/user/${email}`, {
         headers: {
           authorization: `Bearer ${window.localStorage.getItem("accessToken")}`,
         },

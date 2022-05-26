@@ -21,7 +21,7 @@ const UpdateProfile = () => {
 
   useEffect(() => {
     if (email) {
-      fetch(`http://localhost:5000/user/${email}`, {
+      fetch(`https://desolate-cove-12893.herokuapp.com/user/${email}`, {
         headers: {
           authorization: `Bearer ${window.localStorage.getItem("accessToken")}`,
         },
@@ -83,16 +83,19 @@ const UpdateProfile = () => {
               image: uploadedImgUrl,
             };
 
-            fetch(`http://localhost:5000/updateProfileInfo/${_id}`, {
-              method: "POST",
-              headers: {
-                "content-type": "application/json",
-                authorization: `Bearer ${window.localStorage.getItem(
-                  "accessToken"
-                )}`,
-              },
-              body: JSON.stringify({ updatedInfo }),
-            })
+            fetch(
+              `https://desolate-cove-12893.herokuapp.com/updateProfileInfo/${_id}`,
+              {
+                method: "POST",
+                headers: {
+                  "content-type": "application/json",
+                  authorization: `Bearer ${window.localStorage.getItem(
+                    "accessToken"
+                  )}`,
+                },
+                body: JSON.stringify({ updatedInfo }),
+              }
+            )
               .then((res) => res.json())
               .then((updated) => {
                 if (updated.modifiedCount) {
@@ -118,14 +121,19 @@ const UpdateProfile = () => {
         image: image || "",
       };
 
-      fetch(`http://localhost:5000/updateProfileInfo/${_id}`, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-          authorization: `Bearer ${window.localStorage.getItem("accessToken")}`,
-        },
-        body: JSON.stringify({ updatedInfo }),
-      })
+      fetch(
+        `https://desolate-cove-12893.herokuapp.com/updateProfileInfo/${_id}`,
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+            authorization: `Bearer ${window.localStorage.getItem(
+              "accessToken"
+            )}`,
+          },
+          body: JSON.stringify({ updatedInfo }),
+        }
+      )
         .then((res) => res.json())
         .then((updated) => {
           if (updated.modifiedCount) {

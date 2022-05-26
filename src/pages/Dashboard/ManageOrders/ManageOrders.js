@@ -9,7 +9,7 @@ const ManageOrders = () => {
     isLoading,
     refetch,
   } = useQuery("getAllOrders", () =>
-    fetch("http://localhost:5000/getOrders", {
+    fetch("https://desolate-cove-12893.herokuapp.com/getOrders", {
       headers: {
         authorization: `Bearer ${window.localStorage.getItem("accessToken")}`,
       },

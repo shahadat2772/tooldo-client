@@ -8,7 +8,7 @@ const EachUserRow = ({ user, index, refetch }) => {
     });
     const userInfo = { email: email };
 
-    fetch("http://localhost:5000/makeAdmin", {
+    fetch("https://desolate-cove-12893.herokuapp.com/makeAdmin", {
       method: "POST",
       headers: {
         "content-type": "application/json",

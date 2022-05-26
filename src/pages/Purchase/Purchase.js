@@ -24,7 +24,7 @@ const Purchase = () => {
   } = useForm();
 
   const { data: item, isLoading } = useQuery(["itemById", id], () =>
-    fetch(`http://localhost:5000/item/${id}`, {
+    fetch(`https://desolate-cove-12893.herokuapp.com/item/${id}`, {
       headers: {
         authorization: `Bearer ${window.localStorage.getItem("accessToken")}`,
       },
@@ -67,7 +67,7 @@ const Purchase = () => {
       status: "pending",
     };
 
-    fetch(`http://localhost:5000/order`, {
+    fetch(`https://desolate-cove-12893.herokuapp.com/order`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

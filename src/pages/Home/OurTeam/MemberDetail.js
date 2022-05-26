@@ -9,7 +9,7 @@ const MemberDetail = () => {
   const { id } = useParams();
 
   const { data: member, isLoading } = useQuery(["memberById", id], () =>
-    fetch(`http://localhost:5000/teamMember/${id}`, {
+    fetch(`https://desolate-cove-12893.herokuapp.com/teamMember/${id}`, {
       headers: {
         authorization: `Bearer ${window.localStorage.getItem("accessToken")}`,
       },

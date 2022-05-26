@@ -9,7 +9,7 @@ const MakeAdmin = () => {
     isLoading,
     refetch,
   } = useQuery("allUsers", () =>
-    fetch("http://localhost:5000/users", {
+    fetch("https://desolate-cove-12893.herokuapp.com/users", {
       headers: {
         authorization: `Bearer ${window.localStorage.getItem("accessToken")}`,
       },

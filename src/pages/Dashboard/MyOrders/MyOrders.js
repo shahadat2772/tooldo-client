@@ -17,7 +17,7 @@ const MyOrders = () => {
     isLoading,
     refetch,
   } = useQuery(["ordersById", email], () =>
-    fetch(`http://localhost:5000/orders/${email}`, {
+    fetch(`https://desolate-cove-12893.herokuapp.com/orders/${email}`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },

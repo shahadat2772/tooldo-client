@@ -9,7 +9,7 @@ const Inquiry = () => {
   const onSubmit = async (data) => {
     const inquiry = data;
 
-    fetch("http://localhost:5000/addInquiry", {
+    fetch("https://desolate-cove-12893.herokuapp.com/addInquiry", {
       method: "POST",
       headers: {
         "content-type": "application/json",

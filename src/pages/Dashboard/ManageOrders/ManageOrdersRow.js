@@ -7,7 +7,7 @@ const ManageOrdersRow = ({ order, refetch, index }) => {
   const { itemName, email, status, price, totalPrice, paid, _id } = order;
 
   const makeApproved = (id) => {
-    fetch(`http://localhost:5000/approve/${id}`, {
+    fetch(`https://desolate-cove-12893.herokuapp.com/approve/${id}`, {
       headers: {
         authorization: `Bearer ${window.localStorage.getItem("accessToken")}`,
       },

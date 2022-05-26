@@ -41,7 +41,7 @@ const AddReview = () => {
       image,
     };
 
-    fetch("http://localhost:5000/review", {
+    fetch("https://desolate-cove-12893.herokuapp.com/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",

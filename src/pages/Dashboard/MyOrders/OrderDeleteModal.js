@@ -5,7 +5,7 @@ const OrderDeleteModal = ({ orderForDelete, setOrderForDelete }) => {
   const [order, refetch] = orderForDelete;
 
   const handleDelete = (order) => {
-    fetch(`http://localhost:5000/delete`, {
+    fetch(`https://desolate-cove-12893.herokuapp.com/delete`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",

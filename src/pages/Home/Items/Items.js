@@ -5,7 +5,9 @@ import EachItem from "./EachItem";
 
 const Items = () => {
   const { data: items, isLoading } = useQuery("items", () =>
-    fetch("http://localhost:5000/items").then((res) => res.json())
+    fetch("https://desolate-cove-12893.herokuapp.com/items").then((res) =>
+      res.json()
+    )
   );
 
   if (isLoading) {

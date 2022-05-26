@@ -23,7 +23,7 @@ const CheckoutForm = ({ order }) => {
 
   useEffect(() => {
     if (totalPrice) {
-      fetch("http://localhost:5000/create-payment-intent", {
+      fetch("https://desolate-cove-12893.herokuapp.com/create-payment-intent", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -97,7 +97,7 @@ const CheckoutForm = ({ order }) => {
         id: order._id,
       };
 
-      fetch("http://localhost:5000/confirmOrder", {
+      fetch("https://desolate-cove-12893.herokuapp.com/confirmOrder", {
         method: "POST",
         headers: {
           "content-type": "application/json",
