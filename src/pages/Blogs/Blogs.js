@@ -2,9 +2,9 @@ import React from "react";
 
 const Blogs = () => {
   return (
-    <div className="max-w-[650px] mx-auto">
-      <div className="que1">
-        <h2 className="text-xl">
+    <div className="px-4 max-w-[650px] mx-auto mt-6">
+      <div className="que1 pb-4">
+        <h2 style={{ fontFamily: "Oswald" }} className="text-xl">
           # To improve the performance of a React Application:
         </h2>
         <p className="mt-3">
@@ -31,8 +31,8 @@ const Blogs = () => {
           background without effecting the UI flow.
         </p>
       </div>
-      <div className="que2 mt-4">
-        <h2 className="text-xl">
+      <div className="que2 mt-4 pb-4">
+        <h2 style={{ fontFamily: "Oswald" }} className="text-xl">
           # Different ways to manage a state in a React application:
         </h2>
         <h2>
@@ -46,14 +46,12 @@ const Blogs = () => {
           the value of this state can be get and set form anywhere.
         </li>
         <li className="mt-3">
-          Global states are states we manage across multiple components. Means
-          we want to get updated data form state in multiple components. We
+          Global states are states we manage across multiple components. We
           manage this state with help of context api.Also Zustand, Jotai, and
           Recoil can be manage global states.
         </li>
         <li className="mt-3">
-          Server state is where we keep the data that came form an external
-          server. Basically we manage this state with useState()[To keep the
+          Basically we manage server state state with useState()[To keep the
           fetched data] and useEffect()[to fetch the data on dependencies]. But
           we can also use the library like React Query, SWR.
         </li>
@@ -63,6 +61,79 @@ const Blogs = () => {
           react router we can manage the state using useHistory() or
           useLocation().
         </li>
+      </div>
+      <div style={{ fontFamily: "Oswald" }} className="que3 mt-4 pb-4">
+        <h2 className="text-xl"># Search from an array of products by name:</h2>
+        <code>
+          {` const products = [`}
+          <br />
+          {` { name: "Tometo",price: 20,description: "Usually tomemto looks red",  },`}
+          <br />
+          {` { name: "Borboti",price: "Borboti and noodles are awesome together",},`}
+          <br />
+          {` { name: "Bangladesh is wellknown for it's kumra beguni",  },`}
+          <br />
+          {`];`}
+          <br />
+        </code>
+
+        <code>
+          {` const searchFor = (searchingText) => {`}
+          <br />
+          {`const result = [];`}
+          <br />
+          {`   for (const product of products) {`}
+          <br />
+          {` if (`}
+          <br />
+          {`) {`}
+          <br />
+          {`result.push(product);`}
+          <br />
+          {`}}`}
+          <br />
+          {`return result;`}
+          <br />
+          {`};`}
+          <br />
+          {`console.log(searchFor("kumra"));`}
+          <br />
+        </code>
+      </div>
+      <div className="que4 mt-4 pb-4">
+        <h2 style={{ fontFamily: "Oswald" }} className="text-xl">
+          # Why to set a state using it's setter function:
+        </h2>
+        <div>
+          <p>
+            As we use a state in our application in multiple places. Each time a
+            state changes reacts dif algorithm rerenders the components
+            according to the state. This only happens when we use the setter
+            function to set the state. If we do not use the setter function to
+            set that state react will not be able to change the state for all
+            the components that the state used in.
+          </p>
+        </div>
+      </div>
+      <div className="que4 mt-5">
+        <h2 style={{ fontFamily: "Oswald" }} className="text-xl">
+          # What is a unit test? Why should write unit tests?
+        </h2>
+        <div>
+          <i>
+            Unit test is a testing of the smallest testable parts of an
+            application.
+          </i>
+          <div className="mt-3">
+            <li>Debugging processes gets a bit easier.</li>
+            <li>Helps to stay focused and to create a much better design.</li>
+            <li>Through this we can identify the problems earlier.</li>
+            <li>
+              It's helps a developer to think about the design and flow before
+              starting to code.
+            </li>
+          </div>
+        </div>
       </div>
     </div>
   );
