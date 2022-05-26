@@ -24,8 +24,8 @@ const ManageProducts = () => {
     <div className="py-6 px-4">
       <h2 className="text-2xl">Manage Products</h2>
       <div className="ordersContainer mt-3">
-        <div class="overflow-x-auto">
-          <table class="table w-full">
+        <div className="overflow-x-auto">
+          <table className="table w-full">
             {/* <!-- head --> */}
             <thead>
               <tr>

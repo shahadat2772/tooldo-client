@@ -41,13 +41,13 @@ const Dashboard = () => {
       {user && admin && (
         <>
           <li>
+            <Link to={`/dashboard/manageProducts`}>Manage Products</Link>
+          </li>
+          <li>
             <Link to={`/dashboard/manageOrders`}>Manage Orders</Link>
           </li>
           <li>
             <Link to={`/dashboard/addProduct`}>Add Product</Link>
-          </li>
-          <li>
-            <Link to={`/dashboard/manageProducts`}>Manage Products</Link>
           </li>
           <li>
             <Link to={`/dashboard/makeAdmin`}>Make Admin</Link>
