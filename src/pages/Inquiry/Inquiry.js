@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
+import bg from "../../assets/Untitled-1-Recovered.jpg";
 
 const Inquiry = () => {
   // FORM hook
@@ -30,7 +31,7 @@ const Inquiry = () => {
     <section className="px-4">
       <div
         style={{
-          backgroundImage: `url('https://i.ibb.co/KWrmnyP/newBG-1.jpg')`,
+          backgroundImage: { bg },
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
