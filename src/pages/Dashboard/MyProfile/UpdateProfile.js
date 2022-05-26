@@ -52,10 +52,11 @@ const UpdateProfile = () => {
     });
     const name = document.getElementById("nameField").value;
     const email = document.getElementById("emailField").value;
-    const education = data.education;
-    const address = data.address;
-    const phone = data.phone;
-    const linkedIn = data.linkedIn;
+    const education = document.getElementById("educationInput").value;
+    const address = document.getElementById("addressInput").value;
+    const phone = document.getElementById("phoneInput").value;
+    const linkedIn = document.getElementById("linkedinInput").value;
+
     const file = data.file[0];
 
     if (file) {
@@ -100,7 +101,9 @@ const UpdateProfile = () => {
                   navigate("/dashboard/myProfile");
                 } else {
                   toast.error("Doh, something terrible happened.");
+                  toast.dismiss("userInfoLoading");
                 }
+                toast.dismiss("userInfoLoading");
               });
           }
         });
@@ -181,7 +184,7 @@ const UpdateProfile = () => {
                 <span className="label-text">Education</span>
               </label>
               <input
-                {...register("education")}
+                id="educationInput"
                 defaultValue={education}
                 type="text"
                 placeholder="Education"
@@ -195,7 +198,7 @@ const UpdateProfile = () => {
                 <span className="label-text">Address</span>
               </label>
               <input
-                {...register("address")}
+                id="addressInput"
                 defaultValue={address}
                 type="text"
                 placeholder="city/district"
@@ -209,21 +212,20 @@ const UpdateProfile = () => {
                 <span className="label-text">Phone</span>
               </label>
               <input
-                {...register("phone")}
+                id="phoneInput"
                 defaultValue={phone}
                 type="text"
                 placeholder="Phone"
                 className="input input-bordered"
               />
             </div>
-
             {/* Linkdin input */}
             <div className="form-control">
               <label className="label py-[2px] ">
                 <span className="label-text">LinkedIn</span>
               </label>
               <input
-                {...register("linkedIn")}
+                id="linkedinInput"
                 defaultValue={linkedIn}
                 type="text"
                 placeholder="LinkedIn profile link"
