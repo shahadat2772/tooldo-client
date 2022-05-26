@@ -8,10 +8,10 @@ import {
 import toast from "react-hot-toast";
 
 const CheckoutForm = ({ order }) => {
-  // Storing the client service
   const [confirmed, setConfirmed] = useState("");
   const [transactionId, setTransactionId] = useState("");
   console.log(confirmed);
+  // Storing the client secret
   const [clientSecret, setClientSecret] = useState("");
   console.log(clientSecret);
   const [cardError, setCardError] = useState("");

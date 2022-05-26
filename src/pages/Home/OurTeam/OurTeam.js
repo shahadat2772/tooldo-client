@@ -33,10 +33,12 @@ const OurTeam = () => {
             OUR TEAM
           </h2>
           <div className="teamMembers grid grid-cols-1 md:grid-cols-4 gap-6 max-w-6xl mx-auto justify-items-center py-8">
-            {/* Each teammember */}
-
+            {/* Each team members */}
             {members?.map((member, index) => (
-              <div key={index} class="card-compact w-60 hover:bg-naturel-300">
+              <div
+                key={member._id}
+                class="card-compact w-60 hover:bg-naturel-300"
+              >
                 <img src={member.img} alt="member" />
                 <div class="card-body text-white">
                   <h2

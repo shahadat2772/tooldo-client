@@ -14,7 +14,7 @@ const EachItem = ({ item }) => {
     _id,
   } = item;
   return (
-    <div class="card card-compact w-80 md:w-[350px] bg-base-100 shadow-xl">
+    <div class="card card-compact w-80 md:w-[350px] bg-base-100 shadow">
       <figure>
         <img src={image} alt={name} />
       </figure>

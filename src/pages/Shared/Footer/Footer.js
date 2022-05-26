@@ -7,32 +7,51 @@ import {
   faGlobe,
   faScrewdriverWrench,
 } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="mt-10">
+    <div className="mt-16">
       <hr />
       <footer class="footer p-10  text-base-content">
         <div>
           <span class="footer-title">Services</span>
-          <a class="link link-hover">Branding</a>
-          <a class="link link-hover">Design</a>
-          <a class="link link-hover">Marketing</a>
-          <a class="link link-hover">Advertisement</a>
+          <Link to={""} class="link link-hover">
+            Manufacturer
+          </Link>
+          <Link to={""} class="link link-hover">
+            Work with custom design
+          </Link>
+          <Link to={""} class="link link-hover">
+            Innovative tools
+          </Link>
         </div>
         <div>
           <span class="footer-title">Useful links</span>
-          <a class="link link-hover">About us</a>
-          <a class="link link-hover">Contact</a>
-          <a class="link link-hover">Jobs</a>
-          <a class="link link-hover">Press kit</a>
+          <Link to={"/dashboard/myProfile"} class="link link-hover">
+            Your Profile
+          </Link>
+          <Link to={"/dashboard/addReview"} class="link link-hover">
+            Add a review
+          </Link>
+          <Link to={"/dashboard/myOrders"} class="link link-hover">
+            My Orders
+          </Link>
         </div>
         <div>
           <span class="footer-title">Company</span>
-          <a class="link link-hover">About us</a>
-          <a class="link link-hover">Contact</a>
-          <a class="link link-hover">Jobs</a>
-          <a class="link link-hover">Press kit</a>
+          <Link to={""} class="link link-hover">
+            About us
+          </Link>
+          <Link to={""} class="link link-hover">
+            Contact
+          </Link>
+          <Link to={""} class="link link-hover">
+            Jobs
+          </Link>
+          <Link to={""} class="link link-hover">
+            Press kit
+          </Link>
         </div>
         <div>
           <span class="footer-title">Legal</span>

@@ -36,7 +36,6 @@ const MakeAdmin = () => {
             </tr>
           </thead>
           <tbody>
-            {/* <!-- row 1 --> */}
             {users?.map((user, index) => (
               <EachUserRow
                 refetch={refetch}

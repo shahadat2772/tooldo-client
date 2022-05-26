@@ -47,9 +47,9 @@ const MyOrders = () => {
               </tr>
             </thead>
             <tbody>
-              {/* <!-- row 1 --> */}
               {orders?.map((order, index) => (
                 <EachOrderRow
+                  key={order._id}
                   refetch={refetch}
                   index={index}
                   order={order}

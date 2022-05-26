@@ -54,7 +54,6 @@ const Dashboard = () => {
           </li>
         </>
       )}
-
       {/* COMMON ROUTES */}
       <li>
         <Link to={`/dashboard/myProfile`}>My Profile</Link>

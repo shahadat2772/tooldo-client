@@ -29,7 +29,6 @@ const Payment = () => {
   return (
     <div className="p-6">
       <div class="card lg:card-side bg-base-100 shadow-xl">
-        {/* <div class="card w-80 bg-base-100 "> */}
         <figure>
           <img className="w-80" src={order?.image} alt="Shoes" />
         </figure>

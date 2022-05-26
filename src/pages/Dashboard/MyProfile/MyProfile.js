@@ -36,7 +36,6 @@ const MyProfile = () => {
     <div className="p-6">
       <div className="usersInfoContainer">
         <div class="card md:w-[650px] bg-base-100 shadow mx-auto">
-          {/* <div className="text-center text-2xl py-6">Your Profile</div> */}
           <figure class="px-10 pt-4">
             <div class="avatar">
               <div class="w-24 rounded-full">

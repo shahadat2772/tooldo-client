@@ -14,7 +14,10 @@ const Items = () => {
 
   return (
     <section className="my-16">
-      <h2 className="md:text-3xl text-2xl text-center font-medium mb-10">
+      <h2
+        style={{ fontFamily: "Oswald" }}
+        className="md:text-3xl text-2xl text-center font-medium mb-16"
+      >
         TOOLS WE MAKE
       </h2>
       <div className="itemsContainer grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-y-8 gap-x-6 max-w-6xl mx-auto">

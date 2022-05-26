@@ -3,6 +3,7 @@ import React from "react";
 const Blogs = () => {
   return (
     <div className="px-4 max-w-[650px] mx-auto mt-6">
+      {/* Que-1 */}
       <div className="que1 pb-4">
         <h2 style={{ fontFamily: "Oswald" }} className="text-xl">
           # To improve the performance of a React Application:
@@ -31,6 +32,7 @@ const Blogs = () => {
           background without effecting the UI flow.
         </p>
       </div>
+      {/* Que-2 */}
       <div className="que2 mt-4 pb-4">
         <h2 style={{ fontFamily: "Oswald" }} className="text-xl">
           # Different ways to manage a state in a React application:
@@ -62,6 +64,7 @@ const Blogs = () => {
           useLocation().
         </li>
       </div>
+      {/* Que-3 */}
       <div style={{ fontFamily: "Oswald" }} className="que3 mt-4 pb-4">
         <h2 className="text-xl"># Search from an array of products by name:</h2>
         <code>
@@ -100,6 +103,7 @@ const Blogs = () => {
           <br />
         </code>
       </div>
+      {/* Que-4 */}
       <div className="que4 mt-4 pb-4">
         <h2 style={{ fontFamily: "Oswald" }} className="text-xl">
           # Why to set a state using it's setter function:
@@ -115,6 +119,7 @@ const Blogs = () => {
           </p>
         </div>
       </div>
+      {/* Que-5 */}
       <div className="que4 mt-5">
         <h2 style={{ fontFamily: "Oswald" }} className="text-xl">
           # What is a unit test? Why should write unit tests?

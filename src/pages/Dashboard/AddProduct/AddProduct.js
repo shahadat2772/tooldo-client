@@ -18,6 +18,7 @@ const AddProduct = () => {
     const { name, price, minimumOrderQuant, availableQuant, description } =
       data;
 
+    // Saving the imag to imgBB
     const file = data.file[0];
     const formData = new FormData();
     formData.append("image", file);
