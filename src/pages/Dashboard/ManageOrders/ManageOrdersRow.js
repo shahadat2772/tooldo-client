@@ -31,11 +31,12 @@ const ManageOrdersRow = ({ order, refetch, index }) => {
       <td>
         {status === "approved" && (
           <div>
-            <p className="text-secondary">APPROVED</p>
+            <p className="text-secondary">SHIPPED</p>
           </div>
         )}
         {paid && status === "pending" && (
           <div>
+            <p className="text-warning">PENDING</p>
             <button
               onClick={() => makeApproved(_id)}
               className="btn btn-xs btn-primary"
