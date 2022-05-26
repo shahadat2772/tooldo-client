@@ -21,6 +21,7 @@ import MakeAdmin from "./pages/Dashboard/MakeAdmin/MakeAdmin";
 import AddProduct from "./pages/Dashboard/AddProduct/AddProduct";
 import NotFound from "./pages/Shared/NotFound/NotFound";
 import MyPortfolio from "./pages/MyPortfolio/MyPortfolio";
+import Blogs from "./pages/Blogs/Blogs";
 
 function App() {
   return (
@@ -124,6 +125,7 @@ function App() {
           path="/myPortfolio"
           element={<MyPortfolio></MyPortfolio>}
         ></Route>
+        <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path="/*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <Toaster></Toaster>

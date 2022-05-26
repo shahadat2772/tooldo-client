@@ -68,7 +68,7 @@ const MyPortfolio = () => {
             <li>#JAVASCRIPT</li>
           </div>
           <hr />
-          <p className="py-[10px] ">Three of my projects with live site:</p>
+          <p className="py-[10px] ">Three of my projects with live links:</p>
           <div className="WebSkills flex-col flex mb-4  gap-2 flex-wrap">
             <li>
               <a
