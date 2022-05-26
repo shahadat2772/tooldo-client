@@ -3,7 +3,17 @@ import { orderDeleteContext } from "../Dashboard/Dashboard";
 const ManageOrdersRow = ({ order, refetch, index }) => {
   const { orderForDelete, setOrderForDelete } = useContext(orderDeleteContext);
 
-  const { itemName, email, status, price, totalPrice, paid } = order;
+  const { itemName, email, status, price, totalPrice, paid, _id } = order;
+
+  const makeApproved = (id) => {
+    fetch(`http://localhost:5000/approve/${id}`, {
+      headers: {
+        authorization: `Bearer ${window.localStorage.getItem("accessToken")}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((result) => console.log(result));
+  };
 
   return (
     <tr>
@@ -12,12 +22,22 @@ const ManageOrdersRow = ({ order, refetch, index }) => {
       <td>{email}</td>
       <td>${totalPrice}</td>
       <td>
-        {!paid && (
+        {status === "approved" && (
           <div>
-            <button className="btn btn-xs btn-primary">Shipped</button>
+            <p className="text-secondary">APPROVED</p>
           </div>
         )}
-        {paid && (
+        {paid && status === "pending" && (
+          <div>
+            <button
+              onClick={() => makeApproved(_id)}
+              className="btn btn-xs btn-primary"
+            >
+              Shipped
+            </button>
+          </div>
+        )}
+        {!paid && (
           <div className="flex items-center gap-2">
             <p className="text-warning">UNPAID</p>
             <label

@@ -20,8 +20,6 @@ const ManageOrders = () => {
     return <Loading></Loading>;
   }
 
-  console.log(orders);
-
   return (
     <div className="py-6 px-4">
       <h2 className="text-2xl">Manage Orders</h2>
