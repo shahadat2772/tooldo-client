@@ -76,13 +76,13 @@ const Login = () => {
   return (
     <div className="hero min-h-[80vh]">
       <div className="card flex-shrink-0 w-full max-w-sm shadow-xl bg-base-100">
-        <div class="card-body pt-4">
+        <div className="card-body pt-4">
           <h2 className="text-center text-2xl pb-3">Login</h2>
           <form onSubmit={handleSubmit(onSubmit)}>
             {/* Email input */}
-            <div class="form-control">
-              <label class="label pt-0">
-                <span class="label-text">Email</span>
+            <div className="form-control">
+              <label className="label pt-0">
+                <span className="label-text">Email</span>
               </label>
               <input
                 {...register("email", {
@@ -98,7 +98,7 @@ const Login = () => {
                 id="userEmail"
                 type="email"
                 placeholder="email"
-                class="input input-bordered"
+                className="input input-bordered"
               />
               {/* Email field ERRORS */}
               {
@@ -117,9 +117,9 @@ const Login = () => {
               }
             </div>
             {/* Password INPUT */}
-            <div class="form-control">
-              <label class="label pt-0">
-                <span class="label-text">Password</span>
+            <div className="form-control">
+              <label className="label pt-0">
+                <span className="label-text">Password</span>
               </label>
               <input
                 {...register("password", {
@@ -134,7 +134,7 @@ const Login = () => {
                 })}
                 type="password"
                 placeholder="password"
-                class="input input-bordered"
+                className="input input-bordered"
               />
               {/* Email field ERRORS */}
               {
@@ -151,27 +151,27 @@ const Login = () => {
                   )}
                 </label>
               }
-              <label onClick={handleForgetPass} class="label pb-0">
-                <span class="label-text-alt link link-hover">
+              <label onClick={handleForgetPass} className="label pb-0">
+                <span className="label-text-alt link link-hover">
                   Forgot password?
                 </span>
               </label>
             </div>
             {errorElement && errorElement}
-            <div class="form-control mt-3">
-              <button class="btn btn-primary">Login</button>
+            <div className="form-control mt-3">
+              <button className="btn btn-primary">Login</button>
             </div>
-            <label class="label pb-0">
+            <label className="label pb-0">
               <Link className="text-[12px] text-secondary " to={"/register"}>
                 New to dooldo?
               </Link>
             </label>
           </form>
           <div className="divider my-0 ">or</div>
-          <div class="form-control mt-2">
+          <div className="form-control mt-2">
             <button
               onClick={() => signInWithGoogle()}
-              class="btn btn-outline btn-primary"
+              className="btn btn-outline btn-primary"
             >
               <img
                 className="w-[25px] h-[25px] mr-1"

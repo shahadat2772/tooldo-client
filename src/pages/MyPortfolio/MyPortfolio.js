@@ -14,8 +14,8 @@ const MyPortfolio = () => {
           <p className="py-[10px]">Email: shahadat2772@gmail.com</p>
           <hr />
           <p className="py-[10px]">Education:</p>
-          <div class="overflow-x-auto">
-            <table class="table w-full">
+          <div className="overflow-x-auto">
+            <table className="table w-full">
               {/* <!-- head --> */}
               <thead>
                 <tr>

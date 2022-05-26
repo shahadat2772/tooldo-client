@@ -30,12 +30,15 @@ const MemberDetail = () => {
 
   return (
     <div>
-      <div class="card mx-4 lg:card-side bg-base-100 shadow-xl">
+      <div className="card mx-4 lg:card-side bg-base-100 shadow-xl">
         <figure>
           <img src={member?.img} alt="Album" />
         </figure>
-        <div class="card-body justify-center">
-          <h2 style={{ fontFamily: "Oswald" }} class="card-title text-[40px]">
+        <div className="card-body justify-center">
+          <h2
+            style={{ fontFamily: "Oswald" }}
+            className="card-title text-[40px]"
+          >
             {member?.name}
             <br />
           </h2>

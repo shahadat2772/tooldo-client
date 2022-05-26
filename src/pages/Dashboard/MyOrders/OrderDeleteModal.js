@@ -27,14 +27,14 @@ const OrderDeleteModal = ({ orderForDelete, setOrderForDelete }) => {
   return (
     <div>
       {/* <!-- Put this part before </body> tag --> */}
-      <input type="checkbox" id="order-delete-modal" class="modal-toggle" />
-      <div class="modal">
-        <div class="modal-box">
-          <h3 class="font-bold text-lg">WARNING!</h3>
-          <p class="py-4">
+      <input type="checkbox" id="order-delete-modal" className="modal-toggle" />
+      <div className="modal">
+        <div className="modal-box">
+          <h3 className="font-bold text-lg">WARNING!</h3>
+          <p className="py-4">
             You wanna delete {order.itemName} from your orders?
           </p>
-          <div class="modal-action">
+          <div className="modal-action">
             <button
               onClick={() => setOrderForDelete(null)}
               className="btn btn-primary"

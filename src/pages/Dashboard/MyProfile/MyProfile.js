@@ -35,10 +35,10 @@ const MyProfile = () => {
   return (
     <div className="p-6">
       <div className="usersInfoContainer">
-        <div class="card md:w-[650px] bg-base-100 shadow mx-auto">
-          <figure class="px-10 pt-4">
-            <div class="avatar">
-              <div class="w-24 rounded-full">
+        <div className="card md:w-[650px] bg-base-100 shadow mx-auto">
+          <figure className="px-10 pt-4">
+            <div className="avatar">
+              <div className="w-24 rounded-full">
                 <img
                   src={image ? image : "https://i.ibb.co/bbgcz6S/avatar.jpg"}
                   alt=""
@@ -46,8 +46,8 @@ const MyProfile = () => {
               </div>
             </div>
           </figure>
-          <div class="card-body pt-4 items-center ">
-            <h2 class="card-title">Hello, {name}</h2>
+          <div className="card-body pt-4 items-center ">
+            <h2 className="card-title">Hello, {name}</h2>
             <div className="usersSubInfo text-info md:w-96">
               <p className="py-[10px]">Email: {email}</p>
               <hr />
@@ -65,10 +65,10 @@ const MyProfile = () => {
                 LinkedIn: {linkedIn ? linkedIn : "not found"}
               </p>
               <hr />
-              <div class="card-actions">
+              <div className="card-actions">
                 <button
                   onClick={() => navigate(`/dashboard/updateProfile/${email}`)}
-                  class="ml-auto btn btn-primary mt-4"
+                  className="ml-auto btn btn-primary mt-4"
                 >
                   UPDATE INFO
                 </button>

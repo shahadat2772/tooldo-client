@@ -63,31 +63,34 @@ const AddReview = () => {
       <div className="reviewForm">
         <div className="card w-80 md:w-[550px] shadow mx-auto bg-base-100">
           <h2 className="ml-1 text-2xl text-center pt-4 pb-3">ADD A REVIEW</h2>
-          <div class="card-body p-4">
+          <div className="card-body p-4">
             <form onSubmit={handleSubmit(onSubmit)}>
               {/* Review text */}
-              <div class="form-control">
+              <div className="form-control">
                 <textarea
                   required
                   {...register("review")}
                   type="text"
                   placeholder="Your review"
-                  class="input input-bordered h-[80px] mb-2"
+                  className="input input-bordered h-[80px] mb-2"
                 />
               </div>
               {/* Country INPUT */}
-              <div class="form-control">
+              <div className="form-control">
                 <input
                   required
                   {...register("country")}
                   type="text"
                   placeholder="Your country"
-                  class="input input-bordered mb-2"
+                  className="input input-bordered mb-2"
                 />
               </div>
               {/* Star INPUT */}
-              <div class="form-control">
-                <select {...register("ratings")} class="input input-bordered">
+              <div className="form-control">
+                <select
+                  {...register("ratings")}
+                  className="input input-bordered"
+                >
                   <option value={5}>5 Star</option>
                   <option value={4}>4 Star</option>
                   <option value={3}>3 Star</option>
@@ -95,8 +98,8 @@ const AddReview = () => {
                   <option value={1}>1 Star</option>
                 </select>
               </div>
-              <div class=" mt-3">
-                <button class="btn btn-primary">Post</button>
+              <div className=" mt-3">
+                <button className="btn btn-primary">Post</button>
               </div>
             </form>
           </div>

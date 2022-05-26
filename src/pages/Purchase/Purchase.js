@@ -84,7 +84,7 @@ const Purchase = () => {
 
   return (
     <div className="hero min-h-[80vh]">
-      <div class="grid grid-cols-1 md:grid-cols-3 items-center gap-8 bg-base-100 shadow-xl px-6 py-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-8 bg-base-100 shadow-xl px-6 py-6">
         <div className="m-auto w-80">
           <img className="img " src={image} alt="Album" />
         </div>
@@ -101,7 +101,7 @@ const Purchase = () => {
         <div className="form w-80">
           <form onSubmit={handleSubmit(onSubmit)}>
             {/*  Name input */}
-            <div class="form-control">
+            <div className="form-control">
               <input
                 {...register("name", {
                   required: {
@@ -112,7 +112,7 @@ const Purchase = () => {
                 defaultValue={user?.displayName}
                 type="text"
                 placeholder="Name"
-                class="input input-bordered"
+                className="input input-bordered"
               />
               {/* Name field ERRORS */}
               {
@@ -126,7 +126,7 @@ const Purchase = () => {
               }
             </div>
             {/* Email input */}
-            <div class="form-control">
+            <div className="form-control">
               <input
                 {...register("email", {
                   required: {
@@ -141,7 +141,7 @@ const Purchase = () => {
                 defaultValue={user?.email}
                 type="email"
                 placeholder="email"
-                class="input input-bordered"
+                className="input input-bordered"
               />
               {/* Email field ERRORS */}
               {
@@ -161,7 +161,7 @@ const Purchase = () => {
             </div>
 
             {/*  Address input */}
-            <div class="form-control">
+            <div className="form-control">
               <input
                 {...register("address", {
                   required: {
@@ -171,7 +171,7 @@ const Purchase = () => {
                 })}
                 type="text"
                 placeholder="Address"
-                class="input input-bordered"
+                className="input input-bordered"
               />
               {/* Address field ERRORS */}
               {
@@ -186,7 +186,7 @@ const Purchase = () => {
             </div>
 
             {/*  PHONE input */}
-            <div class="form-control">
+            <div className="form-control">
               <input
                 {...register("phone", {
                   required: {
@@ -196,7 +196,7 @@ const Purchase = () => {
                 })}
                 type="text"
                 placeholder="Phone"
-                class="input input-bordered"
+                className="input input-bordered"
               />
               {/* Address field ERRORS */}
               {
@@ -211,7 +211,7 @@ const Purchase = () => {
             </div>
 
             {/* Quantity field */}
-            <div class="form-control">
+            <div className="form-control">
               <input
                 {...register("quantity", {
                   required: {
@@ -231,7 +231,7 @@ const Purchase = () => {
                 defaultValue={minimumOrderQuant}
                 type="number"
                 placeholder="Quantity"
-                class="input input-bordered"
+                className="input input-bordered"
               />
               {/* QUANTITY field ERRORS */}
               {
@@ -255,10 +255,10 @@ const Purchase = () => {
               }
             </div>
 
-            <div class="form-control mt-2">
+            <div className="form-control mt-2">
               <button
                 disabled={errors?.quantity?.message || confirmed}
-                class="btn btn-primary"
+                className="btn btn-primary"
               >
                 PLACE ORDER
               </button>

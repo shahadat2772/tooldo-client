@@ -69,13 +69,13 @@ const Register = () => {
   return (
     <div className="hero min-h-[80vh]">
       <div className="card flex-shrink-0 w-full max-w-sm shadow-xl bg-base-100">
-        <div class="card-body pt-4">
+        <div className="card-body pt-4">
           <h2 className="text-center text-2xl pb-3">Register</h2>
           <form onSubmit={handleSubmit(onSubmit)}>
             {/*  Name input */}
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text">Name</span>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Name</span>
               </label>
               <input
                 {...register("name", {
@@ -86,7 +86,7 @@ const Register = () => {
                 })}
                 type="text"
                 placeholder="Name"
-                class="input input-bordered"
+                className="input input-bordered"
               />
               {/* Name field ERRORS */}
               {
@@ -100,9 +100,9 @@ const Register = () => {
               }
             </div>
             {/* Email input */}
-            <div class="form-control">
-              <label class="label pt-0">
-                <span class="label-text">Email</span>
+            <div className="form-control">
+              <label className="label pt-0">
+                <span className="label-text">Email</span>
               </label>
               <input
                 {...register("email", {
@@ -117,7 +117,7 @@ const Register = () => {
                 })}
                 type="email"
                 placeholder="email"
-                class="input input-bordered"
+                className="input input-bordered"
               />
               {/* Email field ERRORS */}
               {
@@ -136,9 +136,9 @@ const Register = () => {
               }
             </div>
             {/* Password INPUT */}
-            <div class="form-control">
-              <label class="label pt-0">
-                <span class="label-text">Password</span>
+            <div className="form-control">
+              <label className="label pt-0">
+                <span className="label-text">Password</span>
               </label>
               <input
                 {...register("password", {
@@ -153,7 +153,7 @@ const Register = () => {
                 })}
                 type="password"
                 placeholder="password"
-                class="input input-bordered"
+                className="input input-bordered"
               />
               {/* Password field ERRORS */}
               {
@@ -170,27 +170,27 @@ const Register = () => {
                   )}
                 </label>
               }
-              {/* <label class="label">
-                <a href="#" class="label-text-alt link link-hover">
+              {/* <label className="label">
+                <a href="#" className="label-text-alt link link-hover">
                   Forgot password?
                 </a>
               </label> */}
             </div>
             {errorElement && errorElement}
-            <div class="form-control mt-4">
-              <button class="btn btn-primary">Register</button>
+            <div className="form-control mt-4">
+              <button className="btn btn-primary">Register</button>
             </div>
-            <label class="label pb-0">
+            <label className="label pb-0">
               <Link className="text-[12px] text-secondary " to={"/login"}>
                 Have account?
               </Link>
             </label>
           </form>
           <div className="divider my-0 ">or</div>
-          <div class="form-control mt-2">
+          <div className="form-control mt-2">
             <button
               onClick={() => signInWithGoogle()}
-              class="btn btn-outline btn-primary"
+              className="btn btn-outline btn-primary"
             >
               <img
                 className="w-[25px] h-[25px] mr-1"

@@ -14,12 +14,12 @@ const EachItem = ({ item }) => {
     _id,
   } = item;
   return (
-    <div class="card card-compact w-80 md:w-[350px] bg-base-100 shadow">
+    <div className="card card-compact w-80 md:w-[350px] bg-base-100 shadow">
       <figure>
         <img src={image} alt={name} />
       </figure>
-      <div class="card-body">
-        <h2 class="text-accent card-title font-normal">{name}</h2>
+      <div className="card-body">
+        <h2 className="text-accent card-title font-normal">{name}</h2>
         <p className="text-accent">{description.slice(0, 100)}</p>
         <div className="infoContainer w-60 mx-auto my-1">
           <div className="infos flex w-full justify-between my-1">
@@ -35,10 +35,10 @@ const EachItem = ({ item }) => {
             <span className="font-medium">${price}</span>
           </div>
         </div>
-        <div class="card-actions justify-end">
+        <div className="card-actions justify-end">
           <button
             onClick={() => navigate(`/purchase/${_id}`)}
-            class="btn btn-primary"
+            className="btn btn-primary"
           >
             place order
           </button>

@@ -28,12 +28,12 @@ const Payment = () => {
 
   return (
     <div className="p-6">
-      <div class="card lg:card-side bg-base-100 shadow-xl">
+      <div className="card lg:card-side bg-base-100 shadow-xl">
         <figure>
           <img className="w-80" src={order?.image} alt="Shoes" />
         </figure>
-        <div class="card-body justify-center">
-          <h2 class="card-title">
+        <div className="card-body justify-center">
+          <h2 className="card-title">
             {order.name}, <br /> Confirm your order.
           </h2>
           <div className="paymentComponent">

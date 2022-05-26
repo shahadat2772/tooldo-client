@@ -37,14 +37,14 @@ const OurTeam = () => {
             {members?.map((member, index) => (
               <div
                 key={member._id}
-                class="card-compact w-60 hover:bg-naturel-300"
+                className="card-compact w-60 hover:bg-naturel-300"
               >
                 <img src={member.img} alt="member" />
-                <div class="card-body text-white">
+                <div className="card-body text-white">
                   <h2
                     onClick={() => navigate(`/member/${member._id}`)}
                     style={{ fontFamily: "Oswald" }}
-                    class="card-title text-[24px] cursor-pointer hover:text-secondary"
+                    className="card-title text-[24px] cursor-pointer hover:text-secondary"
                   >
                     {member.name}
                   </h2>

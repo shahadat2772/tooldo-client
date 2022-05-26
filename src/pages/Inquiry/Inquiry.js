@@ -50,47 +50,47 @@ const Inquiry = () => {
           </h2>
           <form onSubmit={handleSubmit(onSubmit)}>
             {/* Name INPUT */}
-            <div class="form-control">
+            <div className="form-control">
               <input
                 required
                 {...register("name")}
                 type="text"
                 placeholder="*Your Name"
-                class="input input-bordered mb-2"
+                className="input input-bordered mb-2"
               />
             </div>
             {/* EMAIL INPUT */}
-            <div class="form-control">
+            <div className="form-control">
               <input
                 required
                 {...register("email")}
                 type="text"
                 placeholder="*Your Email"
-                class="input input-bordered mb-2"
+                className="input input-bordered mb-2"
               />
             </div>
             {/* Country INPUT */}
-            <div class="form-control">
+            <div className="form-control">
               <input
                 required
                 {...register("country")}
                 type="text"
                 placeholder="*Your country"
-                class="input input-bordered mb-2"
+                className="input input-bordered mb-2"
               />
             </div>
             {/* MESSAGE text */}
-            <div class="form-control">
+            <div className="form-control">
               <textarea
                 required
                 {...register("message")}
                 type="text"
                 placeholder="*Tell us your demand, we will contact you soon"
-                class="input input-bordered h-[80px] mb-2"
+                className="input input-bordered h-[80px] mb-2"
               />
             </div>
-            <div class="mt-1">
-              <button class="btn btn-primary block ">Send Massage</button>
+            <div className="mt-1">
+              <button className="btn btn-primary block ">Send Massage</button>
             </div>
           </form>
         </div>

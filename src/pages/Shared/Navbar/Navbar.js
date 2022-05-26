@@ -13,7 +13,7 @@ const Navbar = () => {
         <Link to={"/home"}>Home</Link>
       </li>
       <li>
-        <Link to={"/myPortfolio"}>My Portfolio</Link>
+        <Link to={"/myPortfolio"}>Portfolio</Link>
       </li>
       <li>
         <Link to={"/blogs"}>Blogs</Link>
@@ -35,7 +35,6 @@ const Navbar = () => {
           }}
         >
           <a className="flex gap-1">
-            <p>{user?.displayName}</p>
             <p>logout</p>
           </a>
         </li>
@@ -44,11 +43,12 @@ const Navbar = () => {
           <Link to={"/login"}>Login</Link>
         </li>
       )}
+      {user && <div className="flex items-center">{user?.displayName}</div>}
     </>
   );
 
   return (
-    <div className="navbar py-5 bg-base-100">
+    <div className="navbar py-3 h-[80px] bg-base-100">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex="0" className="btn btn-ghost lg:hidden">
@@ -83,7 +83,7 @@ const Navbar = () => {
       </div>
       <label
         htmlFor="dashboard-drawer"
-        class="ml-auto btn btn-ghost drawer-button lg:hidden"
+        className="ml-auto btn btn-ghost drawer-button lg:hidden"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

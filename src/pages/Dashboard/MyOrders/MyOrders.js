@@ -33,8 +33,8 @@ const MyOrders = () => {
       <h2 className="ml-1 text-2xl">Your Orders</h2>
 
       <div className="orders mt-4">
-        <div class="overflow-x-auto">
-          <table class="table w-full">
+        <div className="overflow-x-auto">
+          <table className="table w-full">
             {/* <!-- head --> */}
             <thead>
               <tr>

@@ -139,7 +139,7 @@ const UpdateProfile = () => {
   return (
     <div className="md:p-6">
       <div className="usersInfoContainer">
-        <div class="card md:w-[650px] bg-base-100 shadow mx-auto pb-4">
+        <div className="card md:w-[650px] bg-base-100 shadow mx-auto pb-4">
           {/* CONTENT */}
           <h2 className="text-center py-4 text-xl">Update Profile</h2>
           <form
@@ -147,9 +147,9 @@ const UpdateProfile = () => {
             onSubmit={handleSubmit(onSubmit)}
           >
             {/*  Name input */}
-            <div class="form-control">
-              <label class="label pb-[2px]">
-                <span class="label-text">Name</span>
+            <div className="form-control">
+              <label className="label pb-[2px]">
+                <span className="label-text">Name</span>
               </label>
               <input
                 id="nameField"
@@ -157,13 +157,13 @@ const UpdateProfile = () => {
                 defaultValue={name}
                 type="text"
                 placeholder="Name"
-                class="input input-bordered"
+                className="input input-bordered"
               />
             </div>
             {/* Email input */}
-            <div class="form-control">
-              <label class="label py-[2px] ">
-                <span class="label-text">Email</span>
+            <div className="form-control">
+              <label className="label py-[2px] ">
+                <span className="label-text">Email</span>
               </label>
               <input
                 id="emailField"
@@ -171,81 +171,81 @@ const UpdateProfile = () => {
                 disabled
                 type="email"
                 placeholder="email"
-                class="input input-bordered"
+                className="input input-bordered"
               />
             </div>
 
             {/* Education input */}
-            <div class="form-control">
-              <label class="label py-[2px] ">
-                <span class="label-text">Education</span>
+            <div className="form-control">
+              <label className="label py-[2px] ">
+                <span className="label-text">Education</span>
               </label>
               <input
                 {...register("education")}
                 defaultValue={education}
                 type="text"
                 placeholder="Education"
-                class="input input-bordered"
+                className="input input-bordered"
               />
             </div>
 
             {/* Address input */}
-            <div class="form-control">
-              <label class="label py-[2px] ">
-                <span class="label-text">Address</span>
+            <div className="form-control">
+              <label className="label py-[2px] ">
+                <span className="label-text">Address</span>
               </label>
               <input
                 {...register("address")}
                 defaultValue={address}
                 type="text"
                 placeholder="city/district"
-                class="input input-bordered"
+                className="input input-bordered"
               />
             </div>
 
             {/* Number input */}
-            <div class="form-control">
-              <label class="label py-[2px] ">
-                <span class="label-text">Phone</span>
+            <div className="form-control">
+              <label className="label py-[2px] ">
+                <span className="label-text">Phone</span>
               </label>
               <input
                 {...register("phone")}
                 defaultValue={phone}
                 type="text"
                 placeholder="Phone"
-                class="input input-bordered"
+                className="input input-bordered"
               />
             </div>
 
             {/* Linkdin input */}
-            <div class="form-control">
-              <label class="label py-[2px] ">
-                <span class="label-text">LinkedIn</span>
+            <div className="form-control">
+              <label className="label py-[2px] ">
+                <span className="label-text">LinkedIn</span>
               </label>
               <input
                 {...register("linkedIn")}
                 defaultValue={linkedIn}
                 type="text"
                 placeholder="LinkedIn profile link"
-                class="input input-bordered"
+                className="input input-bordered"
               />
             </div>
 
             {/* File input */}
-            <div class="form-control">
-              <label class="label py-[2px] ">
-                <span class="label-text">Profile Photo</span>
+            <div className="form-control">
+              <label className="label py-[2px] ">
+                <span className="label-text">Profile Photo</span>
               </label>
               <input
                 {...register("file")}
                 type="file"
                 placeholder="LinkedIn profile link"
-                class="input input-bordered"
+                className="input input-bordered"
               />
             </div>
 
-            <div class="mr-auto mt-4">
-              <button class=" btn btn-primary px-8">Update</button>
+            <div className="mr-auto mt-4">
+              <button className=" btn btn-primary px-8">Update</button>
             </div>
           </form>
         </div>
