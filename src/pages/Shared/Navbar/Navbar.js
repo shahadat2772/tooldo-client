@@ -25,8 +25,6 @@ const Navbar = () => {
     }
   }, [user]);
 
-  console.log(userInfo);
-
   const navLinks = (
     <>
       <li>
