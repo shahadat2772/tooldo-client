@@ -89,9 +89,9 @@ const MyPortfolio = () => {
             <li>
               <a
                 className="text-secondary"
-                href="https://red-onion-d5724.web.app/"
+                href="https://dentaid-bc9ec.web.app/"
               >
-                Red Onion
+                DentAid
               </a>
             </li>
           </div>
