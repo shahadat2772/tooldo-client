@@ -32,7 +32,7 @@ const AddReview = () => {
 
   const name = user.displayName;
   const email = user.email;
-  const image = user.photoURL;
+  const image = user.photoURL || userInfo.image;
 
   const date = new Date();
   const d = date.getDate();
