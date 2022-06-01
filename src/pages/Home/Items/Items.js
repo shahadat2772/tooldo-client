@@ -15,7 +15,7 @@ const Items = () => {
   }
 
   return (
-    <section className="my-16">
+    <section id="services" className="my-16">
       <h2
         style={{ fontFamily: "Oswald" }}
         className="md:text-3xl text-2xl text-center font-medium mb-16"

@@ -28,7 +28,9 @@ const Banner = () => {
             By improving your products quality. We believe in <br /> QUALITY,
             RELIABILITY.
           </p>
-          <button className="btn btn-secondary">Start NOw</button>
+          <a href="#services">
+            <button className="btn btn-secondary">Start NOW</button>
+          </a>
         </div>
       </div>
     </section>
