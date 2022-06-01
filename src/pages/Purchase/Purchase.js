@@ -88,8 +88,8 @@ const Purchase = () => {
   };
 
   return (
-    <div className="hero min-h-[80vh]">
-      <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-8 bg-base-100 shadow-xl px-6 py-6">
+    <div className="hero min-h-[100vh]">
+      <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-8 bg-base-100 shadow px-6 py-6">
         <div className="m-auto w-80">
           <img className="img " src={image} alt="Album" />
         </div>
@@ -103,7 +103,7 @@ const Purchase = () => {
           <hr />
           <p className="py-[10px]">price: ${price}/pcs</p>
         </div>
-        <div className="form w-80">
+        <div className="form md:w-80">
           <form onSubmit={handleSubmit(onSubmit)}>
             {/*  Name input */}
             <div className="form-control">

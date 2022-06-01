@@ -33,9 +33,9 @@ const MyProfile = () => {
     userInfo;
 
   return (
-    <div className="p-6">
+    <div className="md:h-[100vh] h-[85vh] hero">
       <div className="usersInfoContainer">
-        <div className="card md:w-[650px] bg-base-100 shadow mx-auto">
+        <div className="card md:w-[650px] bg-base-100 md:shadow mx-auto">
           <figure className="px-10 pt-4">
             <div className="avatar">
               <div className="w-24 rounded-full">

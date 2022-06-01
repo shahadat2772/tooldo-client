@@ -66,7 +66,7 @@ const AddProduct = () => {
       });
   };
   return (
-    <div className="">
+    <div className="md:h-[100vh] h-[85vh] hero">
       <div className="reviewForm">
         <div className="card w-80 md:w-[550px] shadow mx-auto bg-base-100">
           <h2 className="ml-1 text-2xl text-center pt-4 pb-3">ADD A PRODUCT</h2>

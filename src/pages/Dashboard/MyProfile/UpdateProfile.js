@@ -148,9 +148,9 @@ const UpdateProfile = () => {
   };
 
   return (
-    <div className="md:p-6">
+    <div className="md:p-6 h-[100vh] hero">
       <div className="usersInfoContainer">
-        <div className="card md:w-[650px] bg-base-100 shadow mx-auto pb-4">
+        <div className="card md:w-[650px] bg-base-100 md:shadow p-2 mx-auto pb-4">
           {/* CONTENT */}
           <h2 className="text-center py-4 text-xl">Update Profile</h2>
           <form
