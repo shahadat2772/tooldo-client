@@ -1,20 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useQuery } from "react-query";
 import Loading from "../../Shared/Loading/Loading";
 import ManageOrdersRow from "./ManageOrdersRow";
 
 const ManageOrders = () => {
-  const {
-    data: orders,
-    isLoading,
-    refetch,
-  } = useQuery("getAllOrders", () =>
+  const [orders, setOrders] = useState([]);
+
+  const [ordersToShow, setOrdersToShow] = useState([]);
+
+  const { data, isLoading, refetch } = useQuery("getAllOrders", () =>
     fetch("https://desolate-cove-12893.herokuapp.com/getOrders", {
       headers: {
         authorization: `Bearer ${window.localStorage.getItem("accessToken")}`,
       },
     }).then((res) => res.json())
   );
+
+  useEffect(() => {
+    setOrders(data);
+  }, [data]);
 
   if (isLoading) {
     return <Loading></Loading>;

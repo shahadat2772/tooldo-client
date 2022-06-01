@@ -1,11 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../../firebase.init";
 import { signOut } from "firebase/auth";
 import Loading from "../../Shared/Loading/Loading";
 const Navbar = () => {
+  // Navigator
+  const navigate = useNavigate();
+
   const [user, loading] = useAuthState(auth);
+
+  const [userInfo, setUserInfo] = useState({});
+
+  useEffect(() => {
+    if (user?.email) {
+      const email = user?.email;
+      fetch(`https://desolate-cove-12893.herokuapp.com/user/${email}`, {
+        headers: {
+          authorization: `Bearer ${window.localStorage.getItem("accessToken")}`,
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => setUserInfo(data));
+    }
+  }, [user]);
+
+  console.log(userInfo);
 
   const navLinks = (
     <>
@@ -43,7 +63,29 @@ const Navbar = () => {
           <Link to={"/login"}>Login</Link>
         </li>
       )}
-      {user && <div className="flex items-center">{user?.displayName}</div>}
+      {user && (
+        <li>
+          <a href="">
+            <div
+              onClick={() => navigate("/dashboard/myProfile")}
+              className="flex items-center"
+            >
+              <div class="avatar">
+                <div class="w-12 rounded-full">
+                  <img
+                    alt=""
+                    src={
+                      (user?.photoURL && user.photoURL) ||
+                      (userInfo?.image && userInfo.image) ||
+                      "https://i.ibb.co/bbgcz6S/avatar.jpg"
+                    }
+                  />
+                </div>
+              </div>
+            </div>
+          </a>
+        </li>
+      )}
     </>
   );
 
@@ -75,10 +117,10 @@ const Navbar = () => {
           </ul>
         </div>
         <Link
-          className="btn btn-ghost normal-case font-normal font-b text-2xl"
+          className="btn btn-ghost normal-case font-medium font-b text-2xl "
           to={"/home"}
         >
-          TOOL <span className="text-secondary">DO</span>
+          TOOL<span className="text-secondary ">DO</span>
         </Link>
       </div>
       <label
