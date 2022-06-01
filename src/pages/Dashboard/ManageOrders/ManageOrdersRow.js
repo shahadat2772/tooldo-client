@@ -46,14 +46,14 @@ const ManageOrdersRow = ({ order, refetch, index }) => {
           </div>
         )}
         {!paid && (
-          <div className="flex items-center gap-2">
+          <div className=" items-center gap-2">
             <p className="text-warning">UNPAID</p>
             <label
               htmlFor="order-delete-modal"
               onClick={() => setOrderForDelete([order, refetch])}
               className="btn btn-xs btn-warning"
             >
-              DEL
+              DELETE
             </label>
           </div>
         )}
