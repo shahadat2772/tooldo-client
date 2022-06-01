@@ -69,7 +69,7 @@ const Navbar = () => {
               className="flex items-center"
             >
               <div class="avatar">
-                <div class="w-12 rounded-full">
+                <div class="w-10 rounded-full">
                   <img
                     alt=""
                     src={
