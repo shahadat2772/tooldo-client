@@ -3,12 +3,13 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Loading from "../../Shared/Loading/Loading";
 import toast from "react-hot-toast";
+import useUserInfo from "../../../hooks/useUserInfo";
 const UpdateProfile = () => {
   const navigate = useNavigate();
 
   const [imageUrl, setImageUrl] = useState("");
 
-  const [userInfo, setUserInfo] = useState({});
+  // const [userInfo, setUserInfo] = useState({});
   const {
     register,
     handleSubmit,
@@ -19,17 +20,19 @@ const UpdateProfile = () => {
 
   const { email } = useParams();
 
-  useEffect(() => {
-    if (email) {
-      fetch(`https://desolate-cove-12893.herokuapp.com/user/${email}`, {
-        headers: {
-          authorization: `Bearer ${window.localStorage.getItem("accessToken")}`,
-        },
-      })
-        .then((res) => res.json())
-        .then((data) => setUserInfo(data));
-    }
-  }, [email]);
+  const [userInfo] = useUserInfo(email);
+
+  // useEffect(() => {
+  //   if (email) {
+  //     fetch(`https://desolate-cove-12893.herokuapp.com/user/${email}`, {
+  //       headers: {
+  //         authorization: `Bearer ${window.localStorage.getItem("accessToken")}`,
+  //       },
+  //     })
+  //       .then((res) => res.json())
+  //       .then((data) => setUserInfo(data));
+  //   }
+  // }, [email]);
 
   const {
     name,

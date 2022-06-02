@@ -4,26 +4,31 @@ import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../../firebase.init";
 import { signOut } from "firebase/auth";
 import Loading from "../../Shared/Loading/Loading";
+import useUserInfo from "../../../hooks/useUserInfo";
 const Navbar = () => {
   // Navigator
   const navigate = useNavigate();
 
   const [user, loading] = useAuthState(auth);
 
-  const [userInfo, setUserInfo] = useState({});
+  // const [userInfo, setUserInfo] = useState({});
 
-  useEffect(() => {
-    if (user?.email) {
-      const email = user?.email;
-      fetch(`https://desolate-cove-12893.herokuapp.com/user/${email}`, {
-        headers: {
-          authorization: `Bearer ${window.localStorage.getItem("accessToken")}`,
-        },
-      })
-        .then((res) => res.json())
-        .then((data) => setUserInfo(data));
-    }
-  }, [user]);
+  const userEmail = user?.email;
+
+  const [userInfo] = useUserInfo(userEmail);
+
+  // useEffect(() => {
+  //   if (user?.email) {
+  //     const email = user?.email;
+  //     fetch(`https://desolate-cove-12893.herokuapp.com/user/${email}`, {
+  //       headers: {
+  //         authorization: `Bearer ${window.localStorage.getItem("accessToken")}`,
+  //       },
+  //     })
+  //       .then((res) => res.json())
+  //       .then((data) => setUserInfo(data));
+  //   }
+  // }, [user]);
 
   const navLinks = (
     <>

@@ -3,27 +3,33 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../../firebase.init";
+import useUserInfo from "../../../hooks/useUserInfo";
 import Loading from "../../Shared/Loading/Loading";
 
 const MyProfile = () => {
   const navigate = useNavigate();
 
   const [user, loading] = useAuthState(auth);
-  const [userInfo, setUserInfo] = useState({});
 
-  useEffect(() => {
-    if (user) {
-      const email = user?.email;
+  const userEmail = user.email;
 
-      fetch(`https://desolate-cove-12893.herokuapp.com/user/${email}`, {
-        headers: {
-          authorization: `Bearer ${window.localStorage.getItem("accessToken")}`,
-        },
-      })
-        .then((res) => res.json())
-        .then((data) => setUserInfo(data));
-    }
-  }, [user]);
+  const [userInfo] = useUserInfo(userEmail);
+
+  // const [userInfo, setUserInfo] = useState({});
+
+  // useEffect(() => {
+  //   if (user) {
+  //     const email = user?.email;
+
+  //     fetch(`https://desolate-cove-12893.herokuapp.com/user/${email}`, {
+  //       headers: {
+  //         authorization: `Bearer ${window.localStorage.getItem("accessToken")}`,
+  //       },
+  //     })
+  //       .then((res) => res.json())
+  //       .then((data) => setUserInfo(data));
+  //   }
+  // }, [user]);
 
   if (loading) {
     return <Loading></Loading>;

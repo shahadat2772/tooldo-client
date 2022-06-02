@@ -3,6 +3,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { auth } from "../../../firebase.init";
+import useUserInfo from "../../../hooks/useUserInfo";
 import Loading from "../../Shared/Loading/Loading";
 
 const AddReview = () => {
@@ -11,20 +12,24 @@ const AddReview = () => {
   // FORM hook
   const { register, handleSubmit, watch, reset } = useForm();
 
-  const [userInfo, setUserInfo] = useState({});
+  const userEmail = user?.email;
 
-  useEffect(() => {
-    if (user?.email) {
-      const email = user?.email;
-      fetch(`https://desolate-cove-12893.herokuapp.com/user/${email}`, {
-        headers: {
-          authorization: `Bearer ${window.localStorage.getItem("accessToken")}`,
-        },
-      })
-        .then((res) => res.json())
-        .then((data) => setUserInfo(data));
-    }
-  }, [user]);
+  const [userInfo] = useUserInfo(userEmail);
+
+  // const [userInfo, setUserInfo] = useState({});
+
+  // useEffect(() => {
+  //   if (user?.email) {
+  //     const email = user?.email;
+  //     fetch(`https://desolate-cove-12893.herokuapp.com/user/${email}`, {
+  //       headers: {
+  //         authorization: `Bearer ${window.localStorage.getItem("accessToken")}`,
+  //       },
+  //     })
+  //       .then((res) => res.json())
+  //       .then((data) => setUserInfo(data));
+  //   }
+  // }, [user]);
 
   if (loading) {
     return <Loading></Loading>;
