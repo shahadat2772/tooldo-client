@@ -16,21 +16,6 @@ const AddReview = () => {
 
   const [userInfo] = useUserInfo(userEmail);
 
-  // const [userInfo, setUserInfo] = useState({});
-
-  // useEffect(() => {
-  //   if (user?.email) {
-  //     const email = user?.email;
-  //     fetch(`https://desolate-cove-12893.herokuapp.com/user/${email}`, {
-  //       headers: {
-  //         authorization: `Bearer ${window.localStorage.getItem("accessToken")}`,
-  //       },
-  //     })
-  //       .then((res) => res.json())
-  //       .then((data) => setUserInfo(data));
-  //   }
-  // }, [user]);
-
   if (loading) {
     return <Loading></Loading>;
   }

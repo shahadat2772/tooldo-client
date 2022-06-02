@@ -9,7 +9,6 @@ const UpdateProfile = () => {
 
   const [imageUrl, setImageUrl] = useState("");
 
-  // const [userInfo, setUserInfo] = useState({});
   const {
     register,
     handleSubmit,
@@ -21,18 +20,6 @@ const UpdateProfile = () => {
   const { email } = useParams();
 
   const [userInfo] = useUserInfo(email);
-
-  // useEffect(() => {
-  //   if (email) {
-  //     fetch(`https://desolate-cove-12893.herokuapp.com/user/${email}`, {
-  //       headers: {
-  //         authorization: `Bearer ${window.localStorage.getItem("accessToken")}`,
-  //       },
-  //     })
-  //       .then((res) => res.json())
-  //       .then((data) => setUserInfo(data));
-  //   }
-  // }, [email]);
 
   const {
     name,

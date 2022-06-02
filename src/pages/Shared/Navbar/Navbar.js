@@ -11,24 +11,9 @@ const Navbar = () => {
 
   const [user, loading] = useAuthState(auth);
 
-  // const [userInfo, setUserInfo] = useState({});
-
   const userEmail = user?.email;
 
   const [userInfo] = useUserInfo(userEmail);
-
-  // useEffect(() => {
-  //   if (user?.email) {
-  //     const email = user?.email;
-  //     fetch(`https://desolate-cove-12893.herokuapp.com/user/${email}`, {
-  //       headers: {
-  //         authorization: `Bearer ${window.localStorage.getItem("accessToken")}`,
-  //       },
-  //     })
-  //       .then((res) => res.json())
-  //       .then((data) => setUserInfo(data));
-  //   }
-  // }, [user]);
 
   const navLinks = (
     <>
@@ -68,25 +53,22 @@ const Navbar = () => {
       )}
       {user && (
         <li>
-          <a href="">
-            <div
-              onClick={() => navigate("/dashboard/myProfile")}
-              className="flex items-center"
-            >
+          <Link to={"/dashboard/myProfile"}>
+            <div className="flex items-center">
               <div class="avatar">
                 <div class="w-10 rounded-full">
                   <img
                     alt=""
                     src={
-                      (user?.photoURL && user.photoURL) ||
                       (userInfo?.image && userInfo.image) ||
+                      (user?.photoURL && user.photoURL) ||
                       "https://i.ibb.co/bbgcz6S/avatar.jpg"
                     }
                   />
                 </div>
               </div>
             </div>
-          </a>
+          </Link>
         </li>
       )}
     </>
