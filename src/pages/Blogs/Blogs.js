@@ -140,6 +140,27 @@ const Blogs = () => {
           </div>
         </div>
       </div>
+      {/* Que-6 */}
+      <div className="que4 mt-5">
+        <h2 style={{ fontFamily: "Oswald" }} className="text-xl">
+          # How prototypical inheritance works?
+        </h2>
+        <div>
+          <i>
+            Unit test is a testing of the smallest testable parts of an
+            application.
+          </i>
+          <div className="mt-3">
+            <li>Debugging processes gets a bit easier.</li>
+            <li>Helps to stay focused and to create a much better design.</li>
+            <li>Through this we can identify the problems earlier.</li>
+            <li>
+              It's helps a developer to think about the design and flow before
+              starting to code.
+            </li>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

@@ -29,8 +29,8 @@ const MemberDetail = () => {
   }
 
   return (
-    <div>
-      <div className="card mx-4 lg:card-side bg-base-100 shadow-xl">
+    <div className="h-[100vh] hero">
+      <div className="card mx-4 lg:card-side bg-base-100 shadow">
         <figure>
           <img src={member?.img} alt="Album" />
         </figure>
