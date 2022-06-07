@@ -4,6 +4,9 @@
 
 ### Deference about Tooldo:
 
+- Interactive & functional dashboard panel.
+- Managed API for both admin and general user with JsonWebToken.
+- Admin role has extra power of adding & deleting products, orders, and role management.
 - Super easy to use and the UI is user friendly.
 - Got OUR TEAM and a INQUIRY section.
 - Inquiry message goes to DB and by clicking on each team member a user can view team member's detail info.
